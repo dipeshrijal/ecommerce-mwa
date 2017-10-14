@@ -1,3 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 nodeapp
+
+
+# System Files
+.DS_Store
+Thumbs.db
