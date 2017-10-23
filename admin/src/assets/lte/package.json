@@ -1,0 +1,22 @@
+{
+  "name": "lte-redefined",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HTML Starter Template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "bootstrap",
+    "js"
+  ],
+  "author": "Dipesh Rijal",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1"
+  }
+}
