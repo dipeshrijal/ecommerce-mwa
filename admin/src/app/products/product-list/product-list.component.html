@@ -13,22 +13,24 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Data Table With Full Features</h3>
+            <!--<h3 class="box-title">Data Table With Full Features</h3>-->
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
+                <th>Name</th>
+                <th>Availablity</th>
                 <th>Platform(s)</th>
                 <th>Engine version</th>
                 <th>CSS grade</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
+              <tr *ngFor="let i of numbers">
                 <td>Trident</td>
                 <td>Internet
                   Explorer 4.0
@@ -36,6 +38,8 @@
                 <td>Win 95+</td>
                 <td> 4</td>
                 <td>X</td>
+                <td>Edit</td>
+                <td>Delete</td>
               </tr>
               </tbody>
             </table>
