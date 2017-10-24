@@ -1,12 +1,11 @@
-import { Router } from '@angular/router';
-import { ProductService } from './../product.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { FileUploader,FileSelectDirective} from 'ng2-file-upload/ng2-file-upload';
+import {Router} from '@angular/router';
+import {ProductService} from './../product.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
 // const URL = '/api/';
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+// const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
   selector: 'app-product-edit',
@@ -17,7 +16,7 @@ export class ProductEditComponent implements OnInit {
 
 @ViewChild('addProduct') form: NgForm;
 
-public uploader:FileUploader = new FileUploader({url: URL});
+  // public uploader:FileUploader = new FileUploader({url: URL});
 
   constructor(private productService: ProductService,
               private router: Router) {
@@ -28,9 +27,11 @@ public uploader:FileUploader = new FileUploader({url: URL});
 
 
   addNewProduct() {
-    this.productService.addProduct(this.form.value);
+    this.productService.addProduct(this.form.value).subscribe(
+      data => this.router.navigate(['/products'])
+    );
 
-    this.router.navigate(['/products']);
+
   }
 
 }

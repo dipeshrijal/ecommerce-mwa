@@ -17,13 +17,14 @@ import {RoutingModule} from "./routing-module";
 import {WishListComponent} from './products/wish-list/wish-list.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {MyAccountComponent} from './my-account/my-account.component';
+import {MyAccountComponent} from './user/my-account/my-account.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {LoginComponent} from './user/login/login.component';
 import {RegisterComponent} from './user/register/register.component';
 import {SearchResultComponent} from './search-result/search-result.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {UserService} from "./user/user.service";
 
 
 @NgModule({
@@ -55,7 +56,7 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

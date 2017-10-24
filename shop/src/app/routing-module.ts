@@ -7,7 +7,7 @@ import {ProductDetailsComponent} from "./products/product-details/product-detail
 import {WishListComponent} from "./products/wish-list/wish-list.component";
 import {ShoppingCartComponent} from "./shopping-cart/shopping-cart.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
-import {MyAccountComponent} from "./my-account/my-account.component";
+import {MyAccountComponent} from "./user/my-account/my-account.component";
 import {CheckoutComponent} from "./checkout/checkout.component";
 import {LoginComponent} from "./user/login/login.component";
 import {RegisterComponent} from "./user/register/register.component";
