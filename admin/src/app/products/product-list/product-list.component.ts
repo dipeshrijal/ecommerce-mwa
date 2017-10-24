@@ -1,5 +1,7 @@
+import {HttpClient} from '@angular/common/http';
+import {ProductService} from './../product.service';
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
@@ -8,12 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  numbers: number[] = [1,2,3,4,5,6,7,8,9,0,12,2,2,2,222,22];
+  products;
 
-  //constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private http: HttpClient) {
+  }
 
   ngOnInit() {
-    
+    this.http.get('http://localhost:3000/products').subscribe(
+      (response) => this.products = response
+    );
+  }
+
+  getProducts() {
+    return this.http.get('http://localhost:3000/products').subscribe(
+      (response) => this.products = response
+    );
   }
 
 }

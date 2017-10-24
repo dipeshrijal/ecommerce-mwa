@@ -21,25 +21,24 @@
               <thead>
               <tr>
                 <th>Name</th>
-                <th>Availablity</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Brand</th>
+                <th>Discounted Price</th>
+
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let i of numbers">
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-                <td>Edit</td>
-                <td>Delete</td>
+              <tr *ngFor="let product of products">
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.color}}</td>
+                <td>{{product.size}}</td>
+                <td>{{product.brand}}</td>
               </tr>
               </tbody>
             </table>
