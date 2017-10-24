@@ -23,9 +23,7 @@ var ShoppingcartSchema = new Schema({
  */
 ShoppingcartSchema.statics = {
 
-    test: () => {
-        console.log("test");
-    },
+   
 
     
     get: function (query, callback) {

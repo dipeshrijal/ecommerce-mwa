@@ -4,17 +4,17 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 /**
- * @module category
+ * @module subcategories
  * @description contain the details of category information, conditions and actions.
  */
 
-var CategorySchema = new Schema({
+var SubCategorySchema = new Schema({
     name : {type: String},
     description: {type: String}
 
 });
 
-CategorySchema.statics = {
+SubCategorySchema.statics = {
     
         
     
@@ -40,16 +40,16 @@ CategorySchema.statics = {
     
       
         create: function (data, callback) {
-            var category = new this(data);
-            shoppingcart.save(callback);
+            var shoppingcart = new this(data);
+            SubCategorySchema.save(callback);
         }
     };
     
   
 
-var category = mongoose.model('category', CategorySchema);
+var subcategories = mongoose.model('subcategory', SubCategorySchema);
 
 /** export schema */
 module.exports = {
-    Category: category
+    SubCategory: subcategories
 };
