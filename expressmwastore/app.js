@@ -33,6 +33,8 @@ require('./routes/users')(router);
 require('./routes/categories')(router);
 require('./routes/subcategories')(router);
 require('./routes/products')(router);
+require('./routes/brands')(router);
+
 // end routes bindings
 
 // catch 404 and forward to error handler

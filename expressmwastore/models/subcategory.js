@@ -21,9 +21,9 @@ SubcategorySchema.statics = {
         
     
         
-        get: function (query, callback) {
-            this.findOne(query, callback);
-        },
+         get: function (query, callback) {
+             this.findOne(query, callback);
+         },
     
        
         getAll: function (query, callback) {

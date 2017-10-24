@@ -50,4 +50,29 @@ exports.delete = function (req, res) {
 };
 
 
+exports.addSubcategories = function (req, res) {
+    var subcategory = req.body.subcategory;
+    Category.findOneAndUpdate({_id: req.params.id}, {$push: {subcategories: subcategory}}, {
+        safe  : true,
+        upsert: true
+    }, function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err);
+        }
+    });
+}
+
+
+exports.displayDetails= function (req, res){
+    Category.
+    find().
+    populate('subcategories'). 
+    exec(function (err, subcategories) {
+      if (err) res.send(err);
+      res.send(subcategories);
+    });
+}
+
 

@@ -4,14 +4,16 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 /**
- * @module category
- * @description contain the details of category information, conditions and actions.
+ * @module order
+ * @description contain the details of orders information, conditions and actions.
  */
 
-var CategorySchema = new Schema({
-    name : {type: String},
-    description: {type: String},
-    subcategories    : [{type: Schema.Types.ObjectId, ref: 'subcategory'}]
+var OrderSchema = new Schema({
+    cart :  {type: Schema.Types.ObjectId, ref: 'shoppingcart'},
+    customerDetails:  {type: Schema.Types.ObjectId, ref: 'user'},
+    dateCreated: {type: Date},
+    dateShipped: {type: Date},
+    status: {type: String}
 
 
 });

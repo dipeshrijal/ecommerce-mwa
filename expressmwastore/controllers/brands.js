@@ -1,10 +1,10 @@
 'use strict';
 
-var Subcategory = require('../models/subcategory').Subcategory;
+var Brand = require('../models/brand').Brand;
 
-/** create category */
+/** create brand */
 exports.create = function (req, res) {
-    Subcategory.create(req.body, function(err, result) {
+    Brand.create(req.body, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -13,9 +13,9 @@ exports.create = function (req, res) {
     });
 };
 
-/** get all categories  */
+/** get all brands  */
 exports.get= function (req, res) {
-    Subcategory.getAll({}, function(err, result) {
+    Brand.getAll({}, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -25,9 +25,9 @@ exports.get= function (req, res) {
 
 };
 
-/** update category . */
+/** update brand . */
 exports.update = function (req, res) {
-    Subcategory.updateById({_id : req.params.id}, req.body, function(err, result) {
+    Brand.updateById({_id : req.params.id}, req.body, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -37,9 +37,9 @@ exports.update = function (req, res) {
 
 };
 
-/** delete  category  */
+/** delete  brand  */
 exports.delete = function (req, res) {
-    Subcategory.remove({_id: req.params.id}, function(err, result) {
+    Brand.remove({_id: req.params.id}, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -51,13 +51,4 @@ exports.delete = function (req, res) {
 
 
 
-exports.findByCategory= function (req, res){
-    Subcategory.
-    find().
-    populate('category'). 
-    exec(function (err, subcategories) {
-      if (err) res.send(err);
-      res.send(subcategories);
-    });
-}
 
