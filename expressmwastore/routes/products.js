@@ -5,4 +5,5 @@ module.exports = function (router) {
     router.get('/products', Product.get),
     router.put('/products/:id', Product.update),
     router.delete('/products/:id', Product.delete)
+    router.get('/products/category', Product.findByCategory)
 };

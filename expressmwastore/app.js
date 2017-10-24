@@ -27,6 +27,7 @@ var index = require('./routes/index');
 var users = require('./routes/user');
 router.use('/', index);
 router.use('/users', users);
+require('./routes/shoppingcarts')(router);
 require('./routes/products')(router);
 // end routes bindings
 

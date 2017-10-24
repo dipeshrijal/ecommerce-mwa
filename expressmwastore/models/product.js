@@ -1,5 +1,6 @@
 'use strict';
 
+var Category =  require( './category');
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
@@ -10,7 +11,21 @@ var mongoose = require('mongoose'),
 
 var ProductSchema = new Schema({
     name : {type: String},
-    price: {type: Number}
+    price: {type: Number},
+    quantity:{type: Number},
+    description :{type: String},
+    color: {type: String},
+    size: {type:String},
+    brand:{type: Brand},
+    discountPrice: {type: Number},
+    createdAt: {type: Date},
+    updatedAt: {type: Date},
+    images:[{type: String}],
+    subcategory: {type: SubCategory},
+    review: [{
+        type: String
+    }] 
+
 });
 
 /**

@@ -2,7 +2,7 @@
 
 var Product = require('../models/product').Product;
 
-/** create function to create Company. */
+/** create product */
 exports.create = function (req, res) {
     Product.create(req.body, function(err, result) {
         if (!err) {
@@ -13,16 +13,8 @@ exports.create = function (req, res) {
     });
 };
 
-/** getCompany function to get Company by id. */
-exports.get = function (req, res) {
-    // Company.get({_id: req.params.id}, function(err, result) {
-    //     if (!err) {
-    //         return res.json(result);
-    //     } else {
-    //         return res.send(err); // 500 error
-    //     }
-    // });
-
+/** get all products  */
+exports.get= function (req, res) {
     Product.getAll({}, function(err, result) {
         if (!err) {
             return res.json(result);
@@ -33,7 +25,7 @@ exports.get = function (req, res) {
 
 };
 
-/** updateCompany function to get Company by id. */
+/** update product . */
 exports.update = function (req, res) {
     Product.updateById({_id : req.params.id}, req.body, function(err, result) {
         if (!err) {
@@ -45,7 +37,7 @@ exports.update = function (req, res) {
 
 };
 
-/** removeCompany function to get Company by id. */
+/** delete  product  */
 exports.delete = function (req, res) {
     Product.remove({_id: req.params.id}, function(err, result) {
         if (!err) {
@@ -56,3 +48,17 @@ exports.delete = function (req, res) {
         }
     });
 };
+
+/** get  products by category  */
+
+exports.findByCategory = function (req,res){
+    Product.find({category : req.params.category}, function(err, products){
+        if(!err){
+            return res.json(products);
+        }else{
+            console.log(err);
+            return res.send(err);
+        }
+    })
+}
+
