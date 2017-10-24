@@ -80,8 +80,8 @@ ProductSchema.statics = {
      * @param callback: callback for this form
      */
     create: function (data, callback) {
-        var company = new this(data);
-        company.save(callback);
+        var category = new this(data);
+        category.save(callback);
     }
 };
 

@@ -42,7 +42,7 @@ CategorySchema.statics = {
       
         create: function (data, callback) {
             var category = new this(data);
-            shoppingcart.save(callback);
+            category.save(callback);
         }
     };
     
