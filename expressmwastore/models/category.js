@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
  */
 
 var CategorySchema = new Schema({
-    name : {type: String}
+    name: {type: String}
 
 });
 
