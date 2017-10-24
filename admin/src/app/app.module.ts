@@ -1,3 +1,5 @@
+import { BrandService } from './brand/brand.service';
+import { ProductService } from './products/product.service';
 import { CategoryService } from './category/category.service';
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { SubCategoryListComponent } from './SubCategory/subCategory-list/subCategory-list.component';
@@ -51,7 +53,11 @@ import {ProductEditComponent} from "./products/product-edit/product-edit.compone
     FormsModule,
     HttpClientModule,
   ],
-  providers: [CategoryService],
+  providers: [
+    CategoryService,
+    ProductService,
+    BrandService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

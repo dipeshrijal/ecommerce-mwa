@@ -20,14 +20,14 @@ const appRoutes: Routes = [
   {path: 'products', component: ProductListComponent },
   {path: 'products/create', component: ProductEditComponent},
   {path: 'products/:id', component: ProductDetailComponent},
-  {path: 'category', component: CategoryListComponent },
-  {path: 'category/create', component: CategoryEditComponent},
-  {path: 'brand', component: BrandListComponent },
-  {path: 'brand/create', component: BrandEditComponent},
-  {path: 'customer', component: CustomerListComponent },
-  {path: 'customer/create', component: CustomerEditComponent},
-  {path: 'subcategory', component: SubCategoryListComponent },
-  {path: 'subcategory/create', component: SubCategoryEditComponent},
+  {path: 'categories', component: CategoryListComponent },
+  {path: 'categories/create', component: CategoryEditComponent},
+  {path: 'brands', component: BrandListComponent },
+  {path: 'brands/create', component: BrandEditComponent},
+  {path: 'customers', component: CustomerListComponent },
+  {path: 'customers/create', component: CustomerEditComponent},
+  {path: 'subcategories', component: SubCategoryListComponent },
+  {path: 'subcategories/create', component: SubCategoryEditComponent},
 ];
 
 @NgModule({

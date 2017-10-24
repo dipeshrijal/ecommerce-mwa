@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { BrandService } from './../brand.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrandListComponent implements OnInit {
 
-  numbers: number[] = [1,2];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  brands;
+  
+    constructor(private brandService:BrandService,
+                private http: HttpClient) { }
+  
+    ngOnInit() {
+      this.brands = this.getBrands();
+    }
+  
+    getBrands() {
+      this.http.get('http://localhost:3000/brands').subscribe(
+        (response)  => this.brands = response
+      );
+    }
 
 }
