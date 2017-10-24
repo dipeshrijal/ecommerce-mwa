@@ -1,6 +1,9 @@
 'use strict';
 
-var Category = require('./category');
+var Brand = require('./brand')
+var Category =  require( './category');
+var SubCategory = require('./subcategory');
+
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 

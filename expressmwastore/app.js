@@ -28,6 +28,8 @@ var users = require('./routes/user');
 router.use('/', index);
 router.use('/users', users);
 require('./routes/shoppingcarts')(router);
+require('./routes/categories')(router);
+require('./routes/subcategories')(router);
 require('./routes/products')(router);
 // end routes bindings
 
