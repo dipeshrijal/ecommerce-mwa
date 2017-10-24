@@ -1,6 +1,6 @@
 var Mongoose = require('mongoose');
 
-Mongoose.connect('mongodb://127.0.0.1:27017/mwastore', {
+Mongoose.connect('mongodb://deepakkc:Nevergiveup99@ds129315.mlab.com:29315/ecommerce-project', {
     useMongoClient: true
 });
 
