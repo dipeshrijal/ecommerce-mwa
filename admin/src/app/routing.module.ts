@@ -1,3 +1,11 @@
+import { SubCategoryListComponent } from './SubCategory/subCategory-list/subCategory-list.component';
+import { SubCategoryEditComponent } from './SubCategory/subCategory-edit/subCategory-edit.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
+import { BrandEditComponent } from './brand/brand-edit/brand-edit.component';
+import { BrandListComponent } from './brand/brand-list/brand-list.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule, Routes} from "@angular/router";
@@ -9,11 +17,17 @@ import {ProductEditComponent} from "./products/product-edit/product-edit.compone
 const appRoutes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
-  {
-    path: 'products', component: ProductListComponent
-  },
+  {path: 'products', component: ProductListComponent },
   {path: 'products/create', component: ProductEditComponent},
   {path: 'products/:id', component: ProductDetailComponent},
+  {path: 'category', component: CategoryListComponent },
+  {path: 'category/create', component: CategoryEditComponent},
+  {path: 'brand', component: BrandListComponent },
+  {path: 'brand/create', component: BrandEditComponent},
+  {path: 'customer', component: CustomerListComponent },
+  {path: 'customer/create', component: CustomerEditComponent},
+  {path: 'subcategory', component: SubCategoryListComponent },
+  {path: 'subcategory/create', component: SubCategoryEditComponent},
 ];
 
 @NgModule({

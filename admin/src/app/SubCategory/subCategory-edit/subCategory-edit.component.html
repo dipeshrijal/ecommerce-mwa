@@ -1,0 +1,64 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Create Sub - Category
+    </h1>
+  </section>
+
+  <!-- Main content -->
+
+  <section class="content">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        <!-- general form elements -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Sub - Category</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form role="form" method="post" #addSubCategory ="ngForm" (ngSubmit)="addNewSubCategory(addSubCategory)">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="categoryName">Category</label>
+                    <select ngModel #categoryName = "ngModel" class="form-control" id="categoryName">
+                      <option>Men</option>
+                      <option>Women</option>
+                      <option>Child</option>
+                    </select>
+                  </div>
+              <div class="form-group">
+                <label for="subCategoryName">Name</label>
+                <input ngModel #subCategoryName = "ngModel" required type="text" name="cName" class="form-control" id="subCategoryName" placeholder="Enter sub category name">
+                <div class="alert alert-danger" *ngIf="subCategoryName.touched && !subCategoryName.valid">
+                    Category name is required
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subCatDescription">Description</label>
+                <input ngModel #subCatDescription = "ngModel" required type="text" name="subCatDescription" class="form-control" id="subCatDescription" placeholder="Enter sub category description">
+                <div class="alert alert-danger" *ngIf="subCatDescription.touched && !subCatDescription.valid">
+                  Category description is required
+              </div>
+              </div>
+            </div>
+
+            <!-- /.box-body -->
+
+            <div class="box-footer">
+              <div class="col-md-4 col-md-push-8">
+                <button type="submit" [disabled]="addSubCategory.invalid" class="btn btn-primary btn-block pull-right">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /.box -->
+      </div>
+      <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+  </section>
+
+  <!-- /.content -->
+</div>

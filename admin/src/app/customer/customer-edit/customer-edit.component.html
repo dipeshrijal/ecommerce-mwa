@@ -1,0 +1,87 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Sign Up Customer
+    </h1>
+  </section>
+
+  <!-- Main content -->
+
+  <section class="content">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        <!-- general form elements -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Customer</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form role="form" method="post" #addCustomer ="ngForm" (ngSubmit)="addNewCustomer(addCustomer)">
+            <div class="box-body">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input ngModel #customerFirstName = "ngModel" required type="text" name="name" class="form-control" id="firstName" placeholder="Enter first name">
+                <div class="alert alert-danger" *ngIf="customerFirstName.touched && !customerFirstName.valid">
+                    First Name is required
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input ngModel #customerLastName = "ngModel" required type="text" name="name" class="form-control" id="lastName" placeholder="Enter last name">
+                <div class="alert alert-danger" *ngIf="customerLastName.touched && !customerLastName.valid">
+                    Last Name is required
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input  ngModel #email = "ngModel" required type="email" name="description" class="form-control" id="email" placeholder="Enter description">
+                <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                    Email is required
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date Of Birth</label>
+                <input ngModel #dob = "ngModel" required type="text" name="color" class="form-control" id="color" placeholder="Enter color">
+                <div class="alert alert-danger" *ngIf="dob.touched && !dob.valid">
+                    Product color is required
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="radio">
+                  <label for="male">
+                    <input type="radio" name="optionsRadios" id="male" value="Male" checked="">
+                    Male
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="female" value="Female">
+                   Female
+                  </label>
+                </div>
+              </div>
+              
+            </div>
+
+
+            <!-- /.box-body -->
+
+            <div class="box-footer">
+              <div class="col-md-4 col-md-push-8">
+                <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-primary btn-block pull-right">Submit</button>
+              </div>
+            </div>
+          </form>
+          <!-- form ends -->
+        </div>
+        <!-- /.box -->
+      </div>
+      <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+  </section>
+
+  <!-- /.content -->
+</div>
