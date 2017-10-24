@@ -24,10 +24,9 @@ router.use(express.static(path.join(__dirname, 'public')));
 // routes binding
 
 var index = require('./routes/index');
-var users = require('./routes/user');
 router.use('/', index);
-router.use('/users', users);
 require('./routes/shoppingcarts')(router);
+require('./routes/users')(router);
 require('./routes/categories')(router);
 require('./routes/subcategories')(router);
 require('./routes/products')(router);

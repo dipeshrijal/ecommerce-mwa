@@ -1,13 +1,59 @@
-"use strict";
-var mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-    name   : String,
-    badge  : Number,
+'use strict';
+
+var mongoose = require('mongoose'),
+    Schema   = mongoose.Schema;
+
+/**
+ * @module users
+ * @description contain the details of category information, conditions and actions.
+ */
+var Address =require('./address');
+var UserSchema = new mongoose.Schema({
+    firstName   : String,
+    lastName   : String,
+    gender: {type: String, enum: ['Male', 'Female']},
     dob    : {type: Date, default: Date.now},
-    isloved: Boolean
+    role : {type: String, enum: ['admin', 'customer']},
+    address: {type: Address}
 });
 
-const User = mongoose.model('User', userSchema);
+UserSchema.statics = {
+    
+        
+    
+        
+        get: function (query, callback) {
+            this.findOne(query, callback);
+        },
+    
+       
+        getAll: function (query, callback) {
+            this.find(query, callback);
+        },
+    
+        
+        updateById: function (query, updateData, callback) {
+            this.update(query, {$set: updateData}, callback);
+        },
+    
+       
+        delete: function (removeData, callback) {
+            this.remove(removeData, callback);
+        },
+    
+      
+        create: function (data, callback) {
+            var user = new this(data);
+            user.save(callback);
+        }
+    };
+    
+  
 
-module.exports = User;
+var user = mongoose.model('user', UserSchema);
+
+/** export schema */
+module.exports = {
+    User: user
+};
