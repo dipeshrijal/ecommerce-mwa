@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { CategoryService } from './../category.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {CategoryService} from './../category.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-category-edit',
@@ -11,23 +11,20 @@ import { NgForm } from '@angular/forms';
 })
 export class CategoryEditComponent implements OnInit {
 
-  @ViewChild('addCategory') form:NgForm;
+  @ViewChild('addCategory') form: NgForm;
 
   constructor(private categoryService: CategoryService,
-  private http: HttpClient) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
-
   }
 
 
+  addNewCategory() {
+    this.categoryService.addCategory(this.form.value);
 
-  addNewCategory(){
-    // this.categoryService.addCategory(this.form);
-    this.http.get('http://localhost:3000/categories').subscribe(
-      (response)  => console.log(response)
-  );
-
-}
+    this.router.navigate(['/category']);
+  }
 
 }

@@ -25,9 +25,9 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let i of numbers">
-                <td>Electronic</td>
-                <td>Workable</td>
+              <tr *ngFor="let category of categories">
+                <td>{{category.name}}</td>
+                <td>{{category.description}}</td>
               </tr>
               </tbody>
             </table>

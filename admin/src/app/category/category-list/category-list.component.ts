@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {CategoryService} from "../category.service";
 
 @Component({
   selector: 'app-category-list',
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryListComponent implements OnInit {
 
-  numbers: number[] = [1,2,3,4];
+  categories;
 
-  constructor() { }
+  constructor(private categoryService: CategoryService,
+              private http: HttpClient) { }
 
   ngOnInit() {
+    this.categories = this.getCategories();
+  }
+
+  getCategories() {
+    this.http.get('http://localhost:3000/categories').subscribe(
+      (response)  => this.categories = response
+    );
   }
 
 }
