@@ -22,6 +22,7 @@ import {Component} from '@angular/core';
             <i class="material-icons">menu</i>
           </a>
           <ul class="right">
+            <li><a routerLink="/login">Login</a></li>
             <li><a href="">Sass</a></li>
             <!-- Dropdown Trigger -->
             <li>

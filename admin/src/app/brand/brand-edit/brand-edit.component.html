@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Create Product
+      Create Brand
     </h1>
   </section>
 
@@ -14,75 +14,24 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Product</h3>
+            <h3 class="box-title">Brand</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" method="post" #addProductForm ="ngForm" (ngSubmit)="addNewProduct(addProductForm)">
+          <form role="form" method="post" #addBrand ="ngForm" (ngSubmit)="addNewBrand(addBrand)">
             <div class="box-body">
               <div class="form-group">
-                <label for="name">Name</label>
-                <input ngModel #productName = "ngModel" required type="text" name="name" class="form-control" id="name" placeholder="Enter name">
-                <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">
-                    Product name is required
+                <label for="bName">Name</label>
+                <input ngModel #brandName = "ngModel" required type="text" name="bName" class="form-control" id="cName" placeholder="Enter category name">
+                <div class="alert alert-danger" *ngIf="brandName.touched && !brandName.valid">
+                    Brand name is required
                 </div>
               </div>
               <div class="form-group">
-                <label for="description">Description</label>
-                <input  ngModel #productDesc = "ngModel" required type="text" name="description" class="form-control" id="description" placeholder="Enter description">
-                <div class="alert alert-danger" *ngIf="productDesc.touched && !productDesc.valid">
-                    Product description is required
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="color">Color</label>
-                <input ngModel #productColor = "ngModel" required type="text" name="color" class="form-control" id="color" placeholder="Enter color">
-                <div class="alert alert-danger" *ngIf="productColor.touched && !productColor.valid">
-                    Product color is required
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <input ngModel #productQuantity = "ngModel" required pattern="^([1-9]*)$" type="text" name="quantity" class="form-control" id="quantity" placeholder="Enter quantity">
-                <div class="alert alert-danger" *ngIf="productQuantity.touched && !productQuantity.valid">
-                  <div *ngIf="productId.errors.required">Product quantity is required</div>
-                  <div *ngIf="productId.errors.pattern">Product quantity should be numbers only</div>
-              </div>
-              </div>
-              <div class="form-group">
-                <label>Brand</label>
-                <select ngModel #productBrand = "ngModel" required class="form-control">
-                  <option>A</option>
-                  <option>B</option>
-                </select>
-                <div class="alert alert-danger" *ngIf="productBrand.touched && !productBrand.valid">
-                  Product Brand is required
-              </div>
-              </div>
-              
-              <div class="form-group">
-                <label>Size</label>
-                <select class="form-control">
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="price">Price</label>
-                <input  ngModel #productPrice = "ngModel" required pattern="^([1-9]*)$" type="text" name="price" class="form-control" id="price" placeholder="Enter price">
-                <div class="alert alert-danger" *ngIf="productPrice.touched && !productPrice.valid">
-                  <div *ngIf="productPrice.errors.required">Product price is required</div>
-                  <div *ngIf="productPrice.errors.pattern">Product price should be numbers only</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="discountPrice">Discounted Price</label>
-                <input  ngModel #discountPrice = "ngModel" required type="text" name="price" class="form-control" id="discountPrice" placeholder="Enter discounted price">
-                <div class="alert alert-danger" *ngIf="discountPrice.touched && !discountPrice.valid">
-                  <div *ngIf="discountPrice.errors.required">Product price is required</div>
+                <label for="bName">Description</label>
+                <input ngModel #brandDescription = "ngModel" required type="text" name="bName" class="form-control" id="cName" placeholder="Enter category name">
+                <div class="alert alert-danger" *ngIf="brandDescription.touched && !brandDescription.valid">
+                    Brand Description is required
                 </div>
               </div>
               <div class="form-group">
@@ -163,16 +112,14 @@
 
             </div>
 
-
             <!-- /.box-body -->
 
             <div class="box-footer">
               <div class="col-md-4 col-md-push-8">
-                <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-primary btn-block pull-right">Submit</button>
+                <button type="submit" [disabled]="addBrand.invalid" class="btn btn-primary btn-block pull-right">Submit</button>
               </div>
             </div>
           </form>
-          <!-- form ends -->
         </div>
         <!-- /.box -->
       </div>

@@ -7,23 +7,20 @@ import { FileUploader,FileSelectDirective} from 'ng2-file-upload/ng2-file-upload
 const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
-  selector: 'app-product-edit',
-  templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  selector: 'app-brand-edit',
+  templateUrl: './brand-edit.component.html',
+  styleUrls: ['./brand-edit.component.css'],
 })
-export class ProductEditComponent implements OnInit {
+export class BrandEditComponent implements OnInit {
   public uploader:FileUploader = new FileUploader({url: URL});
 
-  //constructor(public prodService: ProdService) {    
- // }
-
-addNewProduct(addProductForm:NgForm){
-    console.log(addProductForm);
-    console.log(addProductForm.value);
-  //this.prodService.addNewProduct(addProductForm.value);
-}
+  constructor() { }
 
   ngOnInit() {
   }
+  addNewBrand(addBrand:NgForm){
+    //console.log(addBrand.value);
+
+}
 
 }
