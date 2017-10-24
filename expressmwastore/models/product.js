@@ -15,7 +15,7 @@ var ProductSchema = new Schema({
     quantity:{type: Number},
     description :{type: String},
     color: {type: String},
-    size: {type:String},
+    size: {type: String},
     brand:{type: Brand},
     discountPrice: {type: Number},
     createdAt: {type: Date},
