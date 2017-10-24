@@ -1,5 +1,9 @@
 'use strict';
 
+var Brand = require('./brand')
+var Category =  require( './category');
+var SubCategory = require('./subcategory');
+
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
@@ -9,8 +13,22 @@ var mongoose = require('mongoose'),
  */
 
 var ProductSchema = new Schema({
-    name : {type: String},
-    price: {type: Number}
+    name         : {type: String},
+    price        : {type: Number},
+    quantity     : {type: Number},
+    description  : {type: String},
+    color        : {type: String},
+    size         : {type: String},
+    brand        : {type: Brand},
+    discountPrice: {type: Number},
+    createdAt    : {type: Date},
+    updatedAt    : {type: Date},
+    images       : [{type: String}],
+    subcategory  : {type: SubCategory},
+    review       : [{
+        type: String
+    }]
+
 });
 
 /**
@@ -62,8 +80,8 @@ ProductSchema.statics = {
      * @param callback: callback for this form
      */
     create: function (data, callback) {
-        var company = new this(data);
-        company.save(callback);
+        var category = new this(data);
+        category.save(callback);
     }
 };
 

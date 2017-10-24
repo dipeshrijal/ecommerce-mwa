@@ -2,10 +2,10 @@
 
 var Product = require('../models/product').Product;
 
-/** create function to create Company. */
+/** create product */
 exports.create = function (req, res) {
-    Product.create(req.body, function(err, result) {
-        if (!err) {
+    Product.create(req.body, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             return res.send(err); // 500 error
@@ -13,18 +13,10 @@ exports.create = function (req, res) {
     });
 };
 
-/** getCompany function to get Company by id. */
+/** get all products  */
 exports.get = function (req, res) {
-    // Company.get({_id: req.params.id}, function(err, result) {
-    //     if (!err) {
-    //         return res.json(result);
-    //     } else {
-    //         return res.send(err); // 500 error
-    //     }
-    // });
-
-    Product.getAll({}, function(err, result) {
-        if (!err) {
+    Product.getAll({}, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             return res.send(err); // 500 error
@@ -33,10 +25,10 @@ exports.get = function (req, res) {
 
 };
 
-/** updateCompany function to get Company by id. */
+/** update product . */
 exports.update = function (req, res) {
-    Product.updateById({_id : req.params.id}, req.body, function(err, result) {
-        if (!err) {
+    Product.updateById({_id: req.params.id}, req.body, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             return res.send(err); // 500 error
@@ -45,10 +37,10 @@ exports.update = function (req, res) {
 
 };
 
-/** removeCompany function to get Company by id. */
+/** delete  product  */
 exports.delete = function (req, res) {
-    Product.remove({_id: req.params.id}, function(err, result) {
-        if (!err) {
+    Product.remove({_id: req.params.id}, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             console.log(err);
@@ -56,3 +48,17 @@ exports.delete = function (req, res) {
         }
     });
 };
+
+/** get  products by category  */
+
+exports.findByCategory = function (req, res) {
+    Product.find({category: req.params.category}, function (err, products) {
+        if (! err) {
+            return res.json(products);
+        } else {
+            console.log(err);
+            return res.send(err);
+        }
+    })
+}
+
