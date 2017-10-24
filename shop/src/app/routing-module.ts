@@ -9,8 +9,8 @@ import {ShoppingCartComponent} from "./shopping-cart/shopping-cart.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {MyAccountComponent} from "./my-account/my-account.component";
 import {CheckoutComponent} from "./checkout/checkout.component";
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./user/login/login.component";
+import {RegisterComponent} from "./user/register/register.component";
 import {SearchResultComponent} from "./search-result/search-result.component";
 
 const appRoutes: Routes = [
