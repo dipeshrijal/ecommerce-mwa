@@ -7,5 +7,5 @@ export class Product{
     size:number;
     price:number;
     discountedPrice:number;
-    image:string;
+    image:string[];
 }
