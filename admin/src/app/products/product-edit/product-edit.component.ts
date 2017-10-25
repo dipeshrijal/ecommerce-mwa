@@ -1,5 +1,5 @@
-import { Subcategory } from './../../models/SubCategory';
-import { Brand } from './../../models/Brand';
+import {Subcategory} from './../../models/SubCategory';
+import {Brand} from './../../models/Brand';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {SubCategoryService} from '../../SubCategory/sub-category.service';

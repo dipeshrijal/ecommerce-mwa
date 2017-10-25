@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.alert-danger {
+    background-color: #ff6666 !important;
+    padding: 6px;
+    border: 1px solid #ff6666;
+}

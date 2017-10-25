@@ -34,25 +34,21 @@
                        class="form-control"
                        id="name"
                        placeholder="Enter name">
-                       <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">
-                        <div *ngIf="productName.errors.required">Product name is required</div>
-                        <div *ngIf="productName.errors.forbiddenName">Product should not be a drug to sell</div>
-                    </div>
+                <div class="alert alert-danger"
+                     *ngIf="productName.touched && !productName.valid">
+                  <div *ngIf="productName.errors.required">Product name is required</div>
+                  <div *ngIf="productName.errors.forbiddenName">Product should not be a drug to sell</div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
                 <input ngModel
                        #productDesc="ngModel"
-                       required
                        type="text"
                        name="description"
                        class="form-control"
                        id="description"
                        placeholder="Enter description">
-                <div class="alert alert-danger"
-                     *ngIf="productDesc.touched && !productDesc.valid">
-                  Product description is required
-                </div>
               </div>
               <div class="form-group">
                 <label for="color">Color</label>
@@ -110,7 +106,7 @@
                         class="form-control"
                         name="subcategory">
                   <option *ngFor="let subcategory of subcategories"
-                          value="{{subcategory._id}}">{{subcategory.name}}
+                          value="{{subcategory._id}}">{{subcategory.category.name}} - {{subcategory.name}}
                   </option>
                 </select>
                 <div class="alert alert-danger"
@@ -120,17 +116,19 @@
               </div>
 
               <div class="form-group">
-                <label>Size</label>
-                <select class="form-control"
-                        name="size"
-                        required
-                        ngModel="size">
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
+                <label for="size">Size</label>
+                <input ngModel
+                       #productSize="ngModel"
+                       required
+                       type="text"
+                       name="color"
+                       class="form-control"
+                       id="size"
+                       placeholder="Enter size">
+                <div class="alert alert-danger"
+                     *ngIf="productSize.touched && !productSize.valid">
+                  Product size is required
+                </div>
               </div>
               <div class="form-group">
                 <label for="price">Price</label>
@@ -153,17 +151,12 @@
                 <label for="discountPrice">Discounted Price</label>
                 <input ngModel
                        #discountPrice="ngModel"
-                       required
                        pattern="^([0-9]*)$"
                        type="text"
                        name="discountPrice"
                        class="form-control"
                        id="discountPrice"
                        placeholder="Enter discounted price">
-                <div class="alert alert-danger"
-                     *ngIf="discountPrice.touched && !discountPrice.valid">
-                  <div *ngIf="discountPrice.errors.required">Product price is required</div>
-                </div>
               </div>
               <div class="form-group">
                 <label for="image">Multiple Image Upload</label>
