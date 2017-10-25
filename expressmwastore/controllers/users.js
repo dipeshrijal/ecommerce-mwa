@@ -20,7 +20,7 @@ var username = req.body.username;
 var password = req.body.password;
 User.findOne({ 'username':username, 'password': password},  function (err, user) {
     if (!err){
-        console.log(user.username);
+        console.log(user);
         
         return res.send(user);
     }else{

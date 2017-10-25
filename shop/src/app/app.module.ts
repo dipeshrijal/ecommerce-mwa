@@ -25,6 +25,8 @@ import {SearchResultComponent} from './search-result/search-result.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./user/user.service";
+import {ProductService} from "./products/product.service";
+import {BrandService} from "./layouts/brands/brand.service";
 
 
 @NgModule({
@@ -56,7 +58,11 @@ import {UserService} from "./user/user.service";
     HttpClientModule,
     RoutingModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    ProductService,
+    BrandService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

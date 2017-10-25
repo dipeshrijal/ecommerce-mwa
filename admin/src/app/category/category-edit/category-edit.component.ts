@@ -22,8 +22,10 @@ export class CategoryEditComponent implements OnInit {
 
   addNewCategory() {
     this.categoryService.addCategory(this.form.value).subscribe(
-      data => this.router.navigate(['/categories'])
-    )
+      response => {
+        this.router.navigateByUrl('/categories');
+      }
+    );
   }
 
 }

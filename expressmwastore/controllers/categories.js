@@ -53,36 +53,35 @@ exports.delete = function (req, res) {
 
 exports.addSubcategories = function (req, res) {
 
-   
-Subcategory.create(req.body.subcategory, function(err, result) {
- if (!err) {
-    Category.findOneAndUpdate({_id: req.params.id}, {$push: {subcategories: result._id}}, {
-        safe  : true,
-        upsert: true
-    }, function (err, result) {
-        if (! err) {
-            return res.json(result);
-        } else {
-            return res.send(err);
-        }
-    });
+
+    Subcategory.create(req.body.subcategory, function(err, result) {
+        if (!err) {
+            Category.findOneAndUpdate({_id: req.params.id}, {$push: {subcategories: result._id}}, {
+                safe  : true,
+                upsert: true
+            }, function (err, result) {
+                if (! err) {
+                    return res.json(result);
+                } else {
+                    return res.send(err);
+                }
+            });
 
         } else {
             return res.send(err); // 500 error
         }
-    
-});
+
+    });
 }
 
 
 exports.displayDetails= function (req, res){
     Category.
     find().
-    populate('subcategories'). 
+    populate('subcategories').
     exec(function (err, subcategories) {
-      if (err) res.send(err);
-      res.send(subcategories);
+        if (err) res.send(err);
+        res.send(subcategories);
     });
 }
-
 
