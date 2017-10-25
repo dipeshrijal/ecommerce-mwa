@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../category.service";
 
 @Component({
@@ -11,25 +10,18 @@ export class CategoryListComponent implements OnInit {
 
   categories;
 
-  constructor(private categoryService: CategoryService,
-              private http: HttpClient) { }
+  constructor(private categoryService: CategoryService) {
+  }
 
   ngOnInit() {
-    this.categories = this.getCategories();
-    //this.categories = this.categoryService.getCategories();
+    this.getCategories();
   }
 
-  
   getCategories() {
-    /*
-    this.http.get('http://localhost:3000/categories').subscribe(
-      (response)  => this.categories = response
-    );
-    */
     this.categoryService.getCategories().subscribe(
-      (response)  => this.categories = response
-    );
+      response => this.categories = response
+    )
   }
-  
+
 
 }

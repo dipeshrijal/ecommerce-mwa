@@ -3,10 +3,9 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class CategoryService {
-    categories;
+
 
   constructor(private http: HttpClient) {
-      
   }
 
 
@@ -15,14 +14,8 @@ export class CategoryService {
   }
 
   getCategories() {
-    /*
-    this.http.get('http://localhost:3000/categories').subscribe(
-      (response)  => this.categories = response
-    );
-    return this.categories;
-    */
-  return this.http.get('http://localhost:3000/categories');
+    return this.http.get('http://localhost:3000/categories');
   }
-  
+
 
 }

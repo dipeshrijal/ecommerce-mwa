@@ -21,6 +21,13 @@ export class AuthGuard implements CanActivate {
           return false;
         }
         return true;
+        // if (! localStorage.getItem('loggedin')) {
+        //   this.router.navigateByUrl('/login');
+        //   return false;
+        // }
+        // return true;
       });
+
+
   }
 }

@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false);
+  user = new BehaviorSubject<any>(null);
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
@@ -22,7 +23,9 @@ export class AuthService {
         if (Object.keys(user).length === 1) {
           // data => localStorage.setItem('token', data['token']),
           //   error => console.log(error));
+          // localStorage.setItem('loggedin', 'true');
           this.loggedIn.next(true);
+          this.user.next(user[0]);
           // localStorage.setItem('token', user['token']);
           localStorage.setItem('token', "hero");
           this.router.navigate(['/dashboard']);

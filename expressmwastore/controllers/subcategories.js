@@ -4,8 +4,8 @@ var Subcategory = require('../models/subcategory').Subcategory;
 
 /** create category */
 exports.create = function (req, res) {
-    Subcategory.create(req.body, function(err, result) {
-        if (!err) {
+    Subcategory.create(req.body, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             return res.send(err); // 500 error
@@ -14,9 +14,9 @@ exports.create = function (req, res) {
 };
 
 /** get all categories  */
-exports.get= function (req, res) {
-    Subcategory.getAll({}, function(err, result) {
-        if (!err) {
+exports.get = function (req, res) {
+    Subcategory.getAll({}, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             return res.send(err); // 500 error
@@ -27,8 +27,8 @@ exports.get= function (req, res) {
 
 /** update category . */
 exports.update = function (req, res) {
-    Subcategory.updateById({_id : req.params.id}, req.body, function(err, result) {
-        if (!err) {
+    Subcategory.updateById({_id: req.params.id}, req.body, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             return res.send(err); // 500 error
@@ -39,8 +39,8 @@ exports.update = function (req, res) {
 
 /** delete  category  */
 exports.delete = function (req, res) {
-    Subcategory.remove({_id: req.params.id}, function(err, result) {
-        if (!err) {
+    Subcategory.remove({_id: req.params.id}, function (err, result) {
+        if (! err) {
             return res.json(result);
         } else {
             console.log(err);
@@ -50,14 +50,10 @@ exports.delete = function (req, res) {
 };
 
 
-
-exports.findByCategory= function (req, res){
-    Subcategory.
-    find().
-    populate('category'). 
-    exec(function (err, subcategories) {
-      if (err) res.send(err);
-      res.send(subcategories);
+exports.findByCategory = function (req, res) {
+    Subcategory.find().populate('category').exec(function (err, subcategories) {
+        if (err) res.send(err);
+        res.send(subcategories);
     });
-}
+};
 

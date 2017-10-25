@@ -1,6 +1,5 @@
-import { CategoryService } from './../../category/category.service';
-import { SubCategoryService } from './../sub-category.service';
-import {HttpClient} from '@angular/common/http';
+import {CategoryService} from './../../category/category.service';
+import {SubCategoryService} from './../sub-category.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from "@angular/router";
@@ -15,25 +14,27 @@ export class SubCategoryEditComponent implements OnInit {
 
   @ViewChild('addSubCategory') form: NgForm;
 
-    constructor(private subcategoryService: SubCategoryService,private categoryService: CategoryService, private router: Router) {
-    }
-  
-    ngOnInit() {
-      this.categories = this.categoryService.getCategories();
-    }
-  
-  
-    addNewSubCategory() {
-      /*
-      this.subcategoryService.addSubCategory(this.form.value);
-  
-      this.router.navigate(['/subcategories']);
-      */
-      this.subcategoryService.addSubCategory(this.form.value).subscribe(
-        data => this.router.navigate(['/subcategories'])
-      )
+  constructor(private subcategoryService: SubCategoryService, private categoryService: CategoryService, private router: Router) {
+  }
 
-    }
+  ngOnInit() {
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe(
+      categories => this.categories = categories
+    );
+  }
+
+
+  addNewSubCategory() {
+    console.log(this.form.value);
+    this.subcategoryService.addSubCategory(this.form.value).subscribe(
+      data => this.router.navigate(['/subcategories'])
+    )
+
+  }
 
 
 }

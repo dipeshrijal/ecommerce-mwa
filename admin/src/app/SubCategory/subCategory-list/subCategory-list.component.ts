@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { SubCategoryService } from './../sub-category.service';
-import { Component, OnInit } from '@angular/core';
+import {SubCategoryService} from '../sub-category.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-subcategory-list',
@@ -10,18 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class SubCategoryListComponent implements OnInit {
 
   subcategories;
-  
-    constructor(private subcategoryService: SubCategoryService,
-                private http: HttpClient) { }
-  
-    ngOnInit() {
-      this.subcategories = this.getCategories();
-    }
-  
-    getCategories() {
-      this.subcategoryService.getSubCategories().subscribe(
-        (response)  => this.subcategories = response
-      );
-    }
+
+  constructor(private subcategoryService: SubCategoryService) {
+  }
+
+  ngOnInit() {
+    this.subcategories = this.getSubcategories();
+  }
+
+  getSubcategories() {
+    this.subcategoryService.getSubCategories().subscribe(
+      (response) =>{
+        console.log(response);
+        this.subcategories = response;
+      }
+    );
+  }
 
 }
