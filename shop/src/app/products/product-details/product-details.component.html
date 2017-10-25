@@ -136,30 +136,42 @@
               <div class="product-page-options">
                 <div class="pull-left">
                   <label class="control-label">Size:</label>
-                  <select class="form-control input-sm">
-                    <option>L</option>
-                    <option>M</option>
-                    <option>XL</option>
+                  <select
+                    class="form-control input-sm">
+                    <option value="l">L</option>
+                    <option value="m">M</option>
+                    <option value="xl">XL</option>
                   </select>
                 </div>
                 <div class="pull-left">
                   <label class="control-label">Color:</label>
-                  <select class="form-control input-sm">
+                  <select
+                    class="form-control input-sm">
                     <option>Red</option>
                     <option>Blue</option>
                     <option>Black</option>
                   </select>
                 </div>
+                <div class="pull-left">
+                  <label class="control-label">Quantity:</label>
+                  <select class="form-control input-sm"
+                          name="quantity"
+                          [(ngModel)]="quantity">
+                    <option *ngFor='let key of product?.quantity | numbers'
+                            value="{{key}}">{{key}}
+                    </option>
+
+                  </select>
+                </div>
               </div>
               <div class="product-page-cart">
-                <div class="product-quantity">
-                  <input id="product-quantity"
-                         type="text"
-                         [(ngModel)]="quantity"
-                         class="form-control input-sm">
-                </div>
+                <!--<div class="product-quantity">-->
+                <!--<input id="product-quantity"-->
+                <!--type="text"-->
+                <!--class="form-control input-sm">-->
+                <!--</div>-->
                 <button class="btn btn-primary"
-                        (click)="addToCart()"
+                        (click)="addToCart(product)"
                 >Add to cart
                 </button>
               </div>

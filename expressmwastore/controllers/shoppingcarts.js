@@ -4,6 +4,7 @@ var ShoppingCart = require('../models/shoppingcart').Shoppingcart;
 
 /** create shopping cart */
 exports.create = function (req, res) {
+
     ShoppingCart.create(req.body, function (err, result) {
         if (! err) {
             return res.json(result);

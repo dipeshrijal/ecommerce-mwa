@@ -12,9 +12,10 @@ var mongoose = require('mongoose'),
 var ShoppingcartSchema = new Schema({
     createdAt: {type: Date},
     updatedAt: {type: Date},
-    items    : [{type: Schema.Types.ObjectId, ref: 'product'}]
-
-
+    items    : [{
+        product: {type: Schema.Types.ObjectId, ref: 'product'},
+        quantity: number
+    }]
 });
 
 /**

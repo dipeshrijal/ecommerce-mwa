@@ -27,6 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./user/user.service";
 import {ProductService} from "./products/product.service";
 import {BrandService} from "./layouts/brands/brand.service";
+import {NumbersPipe} from "./products/numbers.pipe";
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {BrandService} from "./layouts/brands/brand.service";
     CheckoutComponent,
     LoginComponent,
     RegisterComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    NumbersPipe
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,7 @@ import {BrandService} from "./layouts/brands/brand.service";
   providers: [
     UserService,
     ProductService,
-    BrandService
+    BrandService,
   ],
   bootstrap: [AppComponent]
 })

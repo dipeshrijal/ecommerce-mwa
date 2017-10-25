@@ -10,6 +10,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class ProductListComponent implements OnInit {
 
   products;
+  categoryName:string;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) {
@@ -25,8 +26,8 @@ export class ProductListComponent implements OnInit {
       (params: Params) => {
         this.productService.getProductsBySubcategory(params['subcat']).subscribe(
           products => {
-            console.log(products);
             this.products = products;
+            this.categoryName = params['cat'];
           }
         );
       }

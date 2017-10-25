@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
 import {ActivatedRoute} from "@angular/router";
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-product-details',
@@ -10,6 +9,9 @@ import {NgForm} from "@angular/forms";
 })
 export class ProductDetailsComponent implements OnInit {
   product;
+  quantity = 1;
+  size;
+  color;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) {
@@ -20,13 +22,13 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         product => {
           this.product = product;
-          console.log("hello");
         }
       );
   }
 
-  addToCart() {
-
+  addToCart(product) {
+    console.log(product);
+    console.log(this.quantity);
   }
 
 
