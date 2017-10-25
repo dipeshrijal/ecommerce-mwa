@@ -49,10 +49,10 @@ exports.delete = function (req, res) {
     });
 };
 
-/** get  products by category  */
+/** get  products by subcategory  */
 
-exports.findByCategory = function (req, res) {
-    Product.find({category: req.params.category}, function (err, products) {
+exports.findBySubcategory = function (req, res) {
+    Product.find({subcategory: req.params.subcategory}, function (err, products) {
         if (! err) {
             return res.json(products);
         } else {
@@ -61,4 +61,17 @@ exports.findByCategory = function (req, res) {
         }
     })
 }
+
+
+
+exports.displayDetails= function (req, res){
+    Product.
+    find().
+    populate('subcategory'). 
+    exec(function (err, products) {
+      if (err) res.send(err);
+      res.send(products);
+    });
+}
+
 
