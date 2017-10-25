@@ -51,6 +51,18 @@ exports.delete = function (req, res) {
 };
 
 
+/** * find by id */
+ exports.findOne = function (req, res) {
+    Category.findOne({_id: req.params.id},  function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err); // 500 error
+        }
+    });
+};
+
+
 exports.addSubcategories = function (req, res) {
 
     var subcategory = {
