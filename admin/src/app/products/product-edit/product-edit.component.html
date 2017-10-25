@@ -34,10 +34,11 @@
                        class="form-control"
                        id="name"
                        placeholder="Enter name">
-                       <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">
-                        <div *ngIf="productName.errors.required">Product name is required</div>
-                        <div *ngIf="productName.errors.forbiddenName">Product should not be a drug to sell</div>
-                    </div>
+                <div class="alert alert-danger"
+                     *ngIf="productName.touched && !productName.valid">
+                  <div *ngIf="productName.errors.required">Product name is required</div>
+                  <div *ngIf="productName.errors.forbiddenName">Product should not be a drug to sell</div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
@@ -110,7 +111,7 @@
                         class="form-control"
                         name="subcategory">
                   <option *ngFor="let subcategory of subcategories"
-                          value="{{subcategory._id}}">{{subcategory.name}}
+                          value="{{subcategory._id}}">{{subcategory.category.name}} - {{subcategory.name}}
                   </option>
                 </select>
                 <div class="alert alert-danger"
