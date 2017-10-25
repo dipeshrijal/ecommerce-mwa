@@ -19,7 +19,7 @@ export class SubCategoryListComponent implements OnInit {
     }
   
     getCategories() {
-      this.http.get('http://localhost:3000/subcategories').subscribe(
+      this.subcategoryService.getSubCategories().subscribe(
         (response)  => this.subcategories = response
       );
     }

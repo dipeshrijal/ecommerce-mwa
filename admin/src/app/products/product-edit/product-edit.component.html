@@ -92,14 +92,27 @@
                         required
                         class="form-control"
                         name="brand">
-                  <option value="A">A</option>
-                  <option value="B">B</option>
+                  <option *ngFor="let brand of brands" value="{{brand._id}}">{{brand.name}}</option>
                 </select>
                 <div class="alert alert-danger"
                      *ngIf="productBrand.touched && !productBrand.valid">
                   Product Brand is required
                 </div>
               </div>
+              <div class="form-group">
+                  <label>Sub Category</label>
+                  <select ngModel
+                          #productSubCatgory="ngModel"
+                          required
+                          class="form-control"
+                          name="subcategory">
+                    <option *ngFor="let subcategory of subcategories" value="{{subcategory._id}}">{{subcategory.name}}</option>
+                  </select>
+                  <div class="alert alert-danger"
+                       *ngIf="productSubCatgory.touched && !productSubCatgory.valid">
+                    Product sub Category is required
+                  </div>
+                </div>
 
               <div class="form-group">
                 <label>Size</label>
