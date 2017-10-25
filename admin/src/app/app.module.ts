@@ -1,3 +1,5 @@
+import { SubCategoryService } from './SubCategory/sub-category.service';
+import { CustomerService } from './customer/customer.service';
 import { BrandService } from './brand/brand.service';
 import { ProductService } from './products/product.service';
 import { CategoryService } from './category/category.service';
@@ -25,6 +27,8 @@ import {RoutingModule} from "./routing.module";
 import {ProductDetailComponent} from "./products/product-detail/product-detail.component";
 import {ProductListComponent} from "./products/product-list/product-list.component";
 import {ProductEditComponent} from "./products/product-edit/product-edit.component";
+import {LoginComponent} from "./login/login.component";
+import {AuthService} from "./login/auth.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +49,8 @@ import {ProductEditComponent} from "./products/product-edit/product-edit.compone
     CustomerListComponent,
     SubCategoryListComponent,
     SubCategoryEditComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,10 @@ import {ProductEditComponent} from "./products/product-edit/product-edit.compone
   providers: [
     CategoryService,
     ProductService,
-    BrandService
+    BrandService,
+    AuthService,
+    CustomerService,
+    SubCategoryService
   ],
   bootstrap: [AppComponent]
 })

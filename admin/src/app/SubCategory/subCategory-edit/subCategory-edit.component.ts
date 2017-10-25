@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import { CategoryService } from './../../category/category.service';
+import { SubCategoryService } from './../sub-category.service';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-subcategory-edit',
@@ -8,14 +11,24 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./subcategory-edit.component.css']
 })
 export class SubCategoryEditComponent implements OnInit {
+  categories;
 
-  constructor() { }
+  @ViewChild('addSubCategory') form: NgForm;
 
-  ngOnInit() {
-  }
-  addNewSubCategory(addSubCategory:NgForm){
-    //console.log(addCategory.value);
+    constructor(private subcategoryService: SubCategoryService,private categoryService: CategoryService, private router: Router) {
+    }
+  
+    ngOnInit() {
+      this.categories = this.categoryService.getCategories();
+    }
+  
+  
+    addNewSubCategory() {
+      
+      this.subcategoryService.addSubCategory(this.form.value);
+  
+      this.router.navigate(['/subcategories']);
+    }
 
-}
 
 }

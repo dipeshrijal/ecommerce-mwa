@@ -21,15 +21,15 @@
           <form role="form" method="post" #addBrand ="ngForm" (ngSubmit)="addNewBrand()">
             <div class="box-body">
               <div class="form-group">
-                <label for="bName">Name</label>
-                <input ngModel #brandName = "ngModel" required type="text" name="bName" class="form-control" id="cName" placeholder="Enter category name">
+                <label for="name">Name</label>
+                <input ngModel #brandName = "ngModel" required type="text" name="name" class="form-control" id="cName" placeholder="Enter category name">
                 <div class="alert alert-danger" *ngIf="brandName.touched && !brandName.valid">
                     Brand name is required
                 </div>
               </div>
               <div class="form-group">
-                <label for="bName">Description</label>
-                <input ngModel #brandDescription = "ngModel" required type="text" name="bName" class="form-control" id="cName" placeholder="Enter category name">
+                <label for="description">Description</label>
+                <input ngModel #brandDescription = "ngModel" required type="text" name="description" class="form-control" id="cName" placeholder="Enter category name">
                 <div class="alert alert-danger" *ngIf="brandDescription.touched && !brandDescription.valid">
                     Brand Description is required
                 </div>

@@ -1,3 +1,4 @@
+import { BrandService } from './../../brand/brand.service';
 import {Router} from '@angular/router';
 import {ProductService} from './../product.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
@@ -23,6 +24,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this.brands.BrandService.get
   }
 
 
