@@ -19,7 +19,7 @@ export class SubCategoryEditComponent implements OnInit {
     }
   
     ngOnInit() {
-      this.categories = this.categoryService.getCategories();
+      //this.categories = this.categoryService.getCategories();
     }
   
   
