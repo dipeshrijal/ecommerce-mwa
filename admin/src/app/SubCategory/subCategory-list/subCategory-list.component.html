@@ -22,12 +22,14 @@
               <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Category</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let i of numbers">
-                <td>Electronic</td>
-                <td>Workable</td>
+              <tr *ngFor="let subcategory of subcategories">
+                <td>{{subcategory.name}}</td>
+                <td>{{subcategory.description}}</td>
+                <td>{{subcategory.category}}</td>
               </tr>
               </tbody>
             </table>

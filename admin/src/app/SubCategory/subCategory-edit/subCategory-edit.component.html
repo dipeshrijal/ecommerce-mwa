@@ -18,26 +18,24 @@
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" method="post" #addSubCategory ="ngForm" (ngSubmit)="addNewSubCategory(addSubCategory)">
+          <form role="form" method="post" #addSubCategory ="ngForm" (ngSubmit)="addNewSubCategory()">
             <div class="box-body">
                 <div class="form-group">
                     <label for="categoryName">Category</label>
-                    <select ngModel #categoryName = "ngModel" class="form-control" id="categoryName">
-                      <option>Men</option>
-                      <option>Women</option>
-                      <option>Child</option>
+                    <select  ngModel #categoryName = "ngModel" class="form-control" id="categoryName" name="category">
+                      <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
                     </select>
                   </div>
               <div class="form-group">
                 <label for="subCategoryName">Name</label>
-                <input ngModel #subCategoryName = "ngModel" required type="text" name="cName" class="form-control" id="subCategoryName" placeholder="Enter sub category name">
+                <input ngModel #subCategoryName = "ngModel" required type="text" name="name" class="form-control" id="subCategoryName" placeholder="Enter sub category name">
                 <div class="alert alert-danger" *ngIf="subCategoryName.touched && !subCategoryName.valid">
                     Category name is required
                 </div>
               </div>
               <div class="form-group">
                 <label for="subCatDescription">Description</label>
-                <input ngModel #subCatDescription = "ngModel" required type="text" name="subCatDescription" class="form-control" id="subCatDescription" placeholder="Enter sub category description">
+                <input ngModel #subCatDescription = "ngModel" required type="text" name="description" class="form-control" id="subCatDescription" placeholder="Enter sub category description">
                 <div class="alert alert-danger" *ngIf="subCatDescription.touched && !subCatDescription.valid">
                   Category description is required
               </div>

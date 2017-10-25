@@ -1,3 +1,5 @@
+import { SubCategoryService } from './SubCategory/sub-category.service';
+import { CustomerService } from './customer/customer.service';
 import { BrandService } from './brand/brand.service';
 import { ProductService } from './products/product.service';
 import { CategoryService } from './category/category.service';
@@ -56,7 +58,9 @@ import {ProductEditComponent} from "./products/product-edit/product-edit.compone
   providers: [
     CategoryService,
     ProductService,
-    BrandService
+    BrandService,
+    CustomerService,
+    SubCategoryService
   ],
   bootstrap: [AppComponent]
 })

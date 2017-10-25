@@ -15,13 +15,16 @@ export class CategoryListComponent implements OnInit {
               private http: HttpClient) { }
 
   ngOnInit() {
-    this.categories = this.getCategories();
+    //this.categories = this.getCategories();
+    this.categories = this.categoryService.getCategories();
   }
 
+  /*
   getCategories() {
     this.http.get('http://localhost:3000/categories').subscribe(
       (response)  => this.categories = response
     );
   }
+  */
 
 }

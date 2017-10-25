@@ -7,10 +7,4 @@ export class CustomerService {
     constructor(private http: HttpClient) {}
 
 
-    addCategory(category) {
-        this.http.post('http://localhost:3000/categories', category).subscribe(
-            (response)  => console.log(response)
-        );
-    }
-
 }

@@ -25,9 +25,13 @@ export class BrandEditComponent implements OnInit {
   ngOnInit() {
   }
   addNewBrand(){
-    this.brandService.addBrand(this.form.value);
 
-    this.router.navigate(['/brand']);
+    //this.brandService.addBrand(this.form.value);
+    //this.router.navigate(['/brands']);
+
+    this.brandService.addBrand(this.form.value).subscribe(
+      data => this.router.navigate(['/brands'])
+    )
 
 }
 
