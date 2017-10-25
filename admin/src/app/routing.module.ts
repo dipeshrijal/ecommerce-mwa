@@ -13,9 +13,12 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProductListComponent} from "./products/product-list/product-list.component";
 import {ProductDetailComponent} from "./products/product-detail/product-detail.component";
 import {ProductEditComponent} from "./products/product-edit/product-edit.component";
+import {LoginComponent} from "./login/login.component";
+
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'products', component: ProductListComponent },
   {path: 'products/create', component: ProductEditComponent},
