@@ -35,6 +35,4 @@ export class SubCategoryEditComponent implements OnInit {
     )
 
   }
-
-
 }
