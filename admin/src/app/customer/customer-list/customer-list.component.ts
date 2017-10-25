@@ -1,3 +1,4 @@
+import { Customer } from './../../models/Customer';
 import { HttpClient } from '@angular/common/http';
 import { CustomerService } from './../customer.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,18 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
 
-  customers;
+  customers:Customer[];
   
     constructor(private customerService: CustomerService,
                 private http: HttpClient) { }
   
     ngOnInit() {
-      this.customers = this.getCustomers();
+      this.getCustomers();
     }
   
     getCustomers() {
       this.http.get('http://localhost:3000/users').subscribe(
-        (response)  => this.customers = response
+        (response:Customer[])  => this.customers = response
       );
     }
 

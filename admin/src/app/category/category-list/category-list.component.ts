@@ -1,3 +1,4 @@
+import { Category } from './../../models/Category';
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../category.service";
 
@@ -8,7 +9,7 @@ import {CategoryService} from "../category.service";
 })
 export class CategoryListComponent implements OnInit {
 
-  categories;
+  categories:Category[];
 
   constructor(private categoryService: CategoryService) {
   }
@@ -19,7 +20,7 @@ export class CategoryListComponent implements OnInit {
 
   getCategories() {
     this.categoryService.getCategories().subscribe(
-      response => this.categories = response
+      (response:Category[]) => this.categories = response
     )
   }
 

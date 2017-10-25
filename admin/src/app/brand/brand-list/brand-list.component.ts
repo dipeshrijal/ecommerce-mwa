@@ -1,3 +1,4 @@
+import { Brand } from './../../models/Brand';
 import {BrandService} from '../brand.service';
 import {Component, OnInit} from '@angular/core';
 
@@ -7,21 +8,19 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./brand-list.component.css']
 })
 export class BrandListComponent implements OnInit {
-
-  brands;
+  //brands;
+  brands: Brand[];
 
   constructor(private brandService: BrandService) {
   }
 
   ngOnInit() {
-    this.brands = this.getBrands();
-
-
+    this.getBrands();
   }
 
   getBrands() {
     this.brandService.getBrands().subscribe(
-      (response) => this.brands = response
+      (response:Brand[]) => this.brands = response
     );
   }
 
