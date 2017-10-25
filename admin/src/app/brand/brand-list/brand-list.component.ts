@@ -16,13 +16,15 @@ export class BrandListComponent implements OnInit {
   
     ngOnInit() {
       //this.brands = this.getBrands();
-      this.brands = this.brandService.getBrands();
+      this.brands = this.getBrands();
+
+
     }
   
-    // getBrands() {
-    //   this.http.get('http://localhost:3000/brands').subscribe(
-    //     (response)  => this.brands = response
-    //   );
-    // }
+    getBrands() {
+      this.brandService.getBrands().subscribe(
+        (response)  => this.brands = response
+      );
+    }
 
 }

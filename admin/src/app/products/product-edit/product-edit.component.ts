@@ -1,3 +1,4 @@
+import { SubCategoryService } from './../../SubCategory/sub-category.service';
 import { BrandService } from './../../brand/brand.service';
 import {Router} from '@angular/router';
 import {ProductService} from './../product.service';
@@ -19,12 +20,22 @@ export class ProductEditComponent implements OnInit {
 
   // public uploader:FileUploader = new FileUploader({url: URL});
 
-  constructor(private productService: ProductService,
+  brands;
+  subcategories;
+
+  constructor(private productService: ProductService,private brandService:BrandService,
+              private subCategoryService:SubCategoryService,
               private router: Router) {
   }
 
   ngOnInit() {
-    //this.brands.BrandService.get
+    this.brandService.getBrands().subscribe(
+      brands => this.brands = brands
+    );
+    
+    this.subCategoryService.getSubCategories().subscribe(
+      subcategories => this.subcategories = subcategories
+    );
   }
 
 

@@ -24,10 +24,15 @@ export class SubCategoryEditComponent implements OnInit {
   
   
     addNewSubCategory() {
-      
+      /*
       this.subcategoryService.addSubCategory(this.form.value);
   
       this.router.navigate(['/subcategories']);
+      */
+      this.subcategoryService.addSubCategory(this.form.value).subscribe(
+        data => this.router.navigate(['/subcategories'])
+      )
+
     }
 
 

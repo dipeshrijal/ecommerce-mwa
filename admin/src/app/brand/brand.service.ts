@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class BrandService {
-    brands;
 
     constructor(private http: HttpClient) {}
 
@@ -13,10 +12,7 @@ export class BrandService {
 
       getBrands() {
         
-        this.http.get('http://localhost:3000/brands').subscribe(
-          (response)  => this.brands = response
-        );
-        return this.brands;
+        return this.http.get('http://localhost:3000/brands');
         
         //return  this.http.get('http://localhost:3000/brands', this.brands);
       }
