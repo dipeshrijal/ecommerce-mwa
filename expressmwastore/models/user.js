@@ -19,10 +19,9 @@ var UserSchema = new mongoose.Schema({
     },
     address: {type: Address},
     orders    : [{type: Schema.Types.ObjectId, ref: 'order'}],
-    credential: {
-        username: String,
-         password:  String
-    }
+    username: String,
+    password:  String
+    
 
 });
 
