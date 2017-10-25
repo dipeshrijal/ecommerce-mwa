@@ -27,16 +27,17 @@
                 <label for="name">Name</label>
                 <input ngModel
                        #productName="ngModel"
+                       forbiddenName="medicine"
                        required
                        type="text"
                        name="name"
                        class="form-control"
                        id="name"
                        placeholder="Enter name">
-                <div class="alert alert-danger"
-                     *ngIf="productName.touched && !productName.valid">
-                  Product name is required
-                </div>
+                       <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">
+                        <div *ngIf="productName.errors.required">Product name is required</div>
+                        <div *ngIf="productName.errors.forbiddenName">Product should not be a drug to sell</div>
+                    </div>
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
@@ -92,7 +93,9 @@
                         required
                         class="form-control"
                         name="brand">
-                  <option *ngFor="let brand of brands" value="{{brand._id}}">{{brand.name}}</option>
+                  <option *ngFor="let brand of brands"
+                          value="{{brand._id}}">{{brand.name}}
+                  </option>
                 </select>
                 <div class="alert alert-danger"
                      *ngIf="productBrand.touched && !productBrand.valid">
@@ -100,23 +103,28 @@
                 </div>
               </div>
               <div class="form-group">
-                  <label>Sub Category</label>
-                  <select ngModel
-                          #productSubCatgory="ngModel"
-                          required
-                          class="form-control"
-                          name="subcategory">
-                    <option *ngFor="let subcategory of subcategories" value="{{subcategory._id}}">{{subcategory.name}}</option>
-                  </select>
-                  <div class="alert alert-danger"
-                       *ngIf="productSubCatgory.touched && !productSubCatgory.valid">
-                    Product sub Category is required
-                  </div>
+                <label>Sub Category</label>
+                <select ngModel
+                        #productSubCatgory="ngModel"
+                        required
+                        class="form-control"
+                        name="subcategory">
+                  <option *ngFor="let subcategory of subcategories"
+                          value="{{subcategory._id}}">{{subcategory.name}}
+                  </option>
+                </select>
+                <div class="alert alert-danger"
+                     *ngIf="productSubCatgory.touched && !productSubCatgory.valid">
+                  Product sub Category is required
                 </div>
+              </div>
 
               <div class="form-group">
                 <label>Size</label>
-                <select class="form-control">
+                <select class="form-control"
+                        name="size"
+                        required
+                        ngModel="size">
                   <option>8</option>
                   <option>9</option>
                   <option>10</option>
@@ -148,7 +156,7 @@
                        required
                        pattern="^([0-9]*)$"
                        type="text"
-                       name="price"
+                       name="discountPrice"
                        class="form-control"
                        id="discountPrice"
                        placeholder="Enter discounted price">

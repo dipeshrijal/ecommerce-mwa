@@ -1,3 +1,4 @@
+import { Category } from './../../models/Category';
 import {CategoryService} from './../../category/category.service';
 import {SubCategoryService} from './../sub-category.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./subcategory-edit.component.css']
 })
 export class SubCategoryEditComponent implements OnInit {
-  categories;
+  categories:Category[];
 
   @ViewChild('addSubCategory') form: NgForm;
 
@@ -25,7 +26,7 @@ export class SubCategoryEditComponent implements OnInit {
 
   getCategories() {
     this.categoryService.getCategories().subscribe(
-      categories => this.categories = categories
+      (categories:Category[]) => this.categories = categories
     );
   }
 

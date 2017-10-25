@@ -1,3 +1,5 @@
+import { TotalPricePipe } from './custom/totalPrice.pipe';
+import { ForbiddenValidatorDirective } from './custom/forbidden-name.directive';
 import {SubCategoryService} from './SubCategory/sub-category.service';
 import {CustomerService} from './customer/customer.service';
 import {BrandService} from './brand/brand.service';
@@ -52,7 +54,9 @@ import {AuthInterceptor} from "./login/auth.inteceptors";
     SubCategoryListComponent,
     SubCategoryEditComponent,
     FileSelectDirective,
-    LoginComponent
+    LoginComponent,
+    ForbiddenValidatorDirective,
+    TotalPricePipe
   ],
   imports: [
     BrowserModule,
