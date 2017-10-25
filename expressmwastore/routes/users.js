@@ -6,5 +6,4 @@ module.exports = function (router) {
     router.put('/users/:id', User.update),
     router.delete('/users/:id', User.delete),
     router.post('/users/order/:id', User.addOrder)
-  
 };

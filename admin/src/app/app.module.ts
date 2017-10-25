@@ -29,6 +29,7 @@ import {ProductListComponent} from "./products/product-list/product-list.compone
 import {ProductEditComponent} from "./products/product-edit/product-edit.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthService} from "./login/auth.service";
+import {AuthGuard} from "./login/auth.guard";
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {AuthService} from "./login/auth.service";
     BrandService,
     AuthService,
     CustomerService,
-    SubCategoryService
+    SubCategoryService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
