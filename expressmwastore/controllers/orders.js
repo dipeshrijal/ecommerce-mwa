@@ -1,10 +1,10 @@
 'use strict';
 
-var User = require('../models/user').User;
+var Order = require('../models/order').Order;
 
-/** create category */
+/** create order */
 exports.create = function (req, res) {
-    User.create(req.body, function(err, result) {
+    Order.create(req.body, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -13,9 +13,9 @@ exports.create = function (req, res) {
     });
 };
 
-/** get all categories  */
+/** get all orders  */
 exports.get= function (req, res) {
-    User.getAll({}, function(err, result) {
+    Order.getAll({}, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -25,9 +25,9 @@ exports.get= function (req, res) {
 
 };
 
-/** update category . */
+/** update order . */
 exports.update = function (req, res) {
-    User.updateById({_id : req.params.id}, req.body, function(err, result) {
+    Order.updateById({_id : req.params.id}, req.body, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -37,9 +37,9 @@ exports.update = function (req, res) {
 
 };
 
-/** delete  category  */
+/** delete  order  */
 exports.delete = function (req, res) {
-    User.remove({_id: req.params.id}, function(err, result) {
+    Order.remove({_id: req.params.id}, function(err, result) {
         if (!err) {
             return res.json(result);
         } else {
@@ -50,18 +50,5 @@ exports.delete = function (req, res) {
 };
 
 
-exports.addOrder = function (req, res) {
-    var order = req.body.order;
-    User.findOneAndUpdate({_id: req.params.id}, {$push: {orders: order}}, {
-        safe  : true,
-        upsert: true
-    }, function (err, result) {
-        if (! err) {
-            return res.json(result);
-        } else {
-            return res.send(err);
-        }
-    });
-}
 
 

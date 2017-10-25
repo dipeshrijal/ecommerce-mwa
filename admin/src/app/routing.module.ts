@@ -27,8 +27,7 @@ const appRoutes: Routes = [
   {path: 'categories/create', component: CategoryEditComponent},
   {path: 'brands', component: BrandListComponent },
   {path: 'brands/create', component: BrandEditComponent},
-  {path: 'customers', component: CustomerListComponent },
-  {path: 'customers/create', component: CustomerEditComponent},
+  {path: 'users', component: CustomerListComponent },
   {path: 'subcategories', component: SubCategoryListComponent },
   {path: 'subcategories/create', component: SubCategoryEditComponent},
 ];

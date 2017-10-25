@@ -10,12 +10,16 @@ var mongoose = require('mongoose'),
  */
 var Address =require('./address');
 var UserSchema = new mongoose.Schema({
+    personalDeatails :{
     firstName   : String,
     lastName   : String,
     gender: {type: String, enum: ['Male', 'Female']},
     dob    : {type: Date, default: Date.now},
     role : {type: String, enum: ['admin', 'customer']},
-    address: {type: Address}
+    },
+    address: {type: Address},
+    orders    : [{type: Schema.Types.ObjectId, ref: 'order'}]
+
 });
 
 UserSchema.statics = {

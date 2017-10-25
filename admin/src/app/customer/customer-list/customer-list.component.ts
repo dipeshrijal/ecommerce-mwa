@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { CustomerService } from './../customer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
 
-  numbers: number[] = [1,2,3,4,5,6];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  customers;
+  
+    constructor(private customerService: CustomerService,
+                private http: HttpClient) { }
+  
+    ngOnInit() {
+      this.customers = this.getCustomers();
+    }
+  
+    getCustomers() {
+      this.http.get('http://localhost:3000/users').subscribe(
+        (response)  => this.customers = response
+      );
+    }
 
 }

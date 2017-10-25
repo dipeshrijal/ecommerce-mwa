@@ -1,3 +1,5 @@
+import { SubCategoryService } from './SubCategory/sub-category.service';
+import { CustomerService } from './customer/customer.service';
 import { BrandService } from './brand/brand.service';
 import { ProductService } from './products/product.service';
 import { CategoryService } from './category/category.service';
@@ -60,7 +62,9 @@ import {AuthService} from "./login/auth.service";
     CategoryService,
     ProductService,
     BrandService,
-    AuthService
+    AuthService,
+    CustomerService,
+    SubCategoryService
   ],
   bootstrap: [AppComponent]
 })
