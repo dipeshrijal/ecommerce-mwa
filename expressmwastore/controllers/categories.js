@@ -53,8 +53,12 @@ exports.delete = function (req, res) {
 
 exports.addSubcategories = function (req, res) {
 
+    var subcategory = {
+        "name" : req.body.name,
+        "description": req.body.description
+    }
 
-    Subcategory.create(req.body.subcategory, function(err, result) {
+    Subcategory.create(subcategory, function(err, result) {
         if (!err) {
             Category.findOneAndUpdate({_id: req.params.id}, {$push: {subcategories: result._id}}, {
                 safe  : true,

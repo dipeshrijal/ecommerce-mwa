@@ -10,7 +10,8 @@ var mongoose = require('mongoose'),
 
 var SubcategorySchema = new Schema({
     name : {type: String},
-    description: {type: String}
+    description: {type: String},
+    products    : [{type: Schema.Types.ObjectId, ref: 'product'}]
   
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 var Subcategory = require('../models/subcategory').Subcategory;
-
+var Product = require('../models/product').Product;
 /** create category */
 exports.create = function (req, res) {
     Subcategory.create(req.body, function (err, result) {
@@ -57,3 +57,23 @@ exports.findByCategory = function (req, res) {
     });
 };
 
+exports.addProducts = function (req, res) {
+Product.create(req.body.product, function(err, result) {
+    if (!err) {
+        Subcategory.findOneAndUpdate({_id: req.params.id}, {$push: {products: result._id}}, {
+            safe  : true,
+            upsert: true
+        }, function (err, result) {
+            if (! err) {
+                return res.json(result);
+            } else {
+                return res.send(err);
+            }
+        });
+
+    } else {
+        return res.send(err); // 500 error
+    }
+
+});
+}
