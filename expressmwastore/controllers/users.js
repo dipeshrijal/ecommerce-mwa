@@ -13,6 +13,18 @@ exports.create = function (req, res) {
     });
 };
 
+/**   find by firstName */
+exports.findByAccount = function (req, res) {
+var username = req.body.username;
+var password = req.body.password;
+User.find({ 'credential.username':username, 'credential.password': password},  function (err, user) {
+    if (!err){
+        return res.json(user);
+    }else{
+        return res.send(err);
+    }
+  })
+}
 /** get all categories  */
 exports.get= function (req, res) {
     User.getAll({}, function(err, result) {
