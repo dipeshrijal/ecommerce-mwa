@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     this.http.get("http://localhost:3000/categories/details").subscribe(
       data => {
         this.categories = data;
+        console.log(data);
         // console.log(data[0].subcategories[0].name)
 
       }

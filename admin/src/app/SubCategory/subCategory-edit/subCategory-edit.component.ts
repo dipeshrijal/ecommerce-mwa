@@ -14,7 +14,9 @@ export class SubCategoryEditComponent implements OnInit {
 
   @ViewChild('addSubCategory') form: NgForm;
 
-  constructor(private subcategoryService: SubCategoryService, private categoryService: CategoryService, private router: Router) {
+  constructor(private subcategoryService: SubCategoryService,
+              private categoryService: CategoryService,
+              private router: Router) {
   }
 
   ngOnInit() {

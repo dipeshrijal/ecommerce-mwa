@@ -12,6 +12,10 @@ export class ProductService {
     return this.http.get('http://localhost:3000/products');
   }
 
+  getProductsById(id) {
+    return this.http.get('http://localhost:3000/products/' + id);
+  }
+
 
   addProduct(product) {
     return this.http.post('http://localhost:3000/products', product);

@@ -13,6 +13,16 @@ exports.create = function (req, res) {
     });
 };
 
+exports.findOne = function (req, res) {
+    Product.findOne({_id: req.params.id},  function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err); // 500 error
+        }
+    });
+};
+
 /** get all products  */
 exports.get = function (req, res) {
     Product.getAll({}, function (err, result) {
@@ -60,5 +70,5 @@ exports.findByCategory = function (req, res) {
             return res.send(err);
         }
     })
-}
+};
 
