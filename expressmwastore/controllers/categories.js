@@ -55,7 +55,8 @@ exports.addSubcategories = function (req, res) {
 
     var subcategory = {
         "name" : req.body.name,
-        "description": req.body.description
+        "description": req.body.description,
+        "category": req.params.id
     }
 
     Subcategory.create(subcategory, function(err, result) {

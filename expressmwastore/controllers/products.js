@@ -78,6 +78,10 @@ exports.displayDetails= function (req, res){
     Product.
     find().
     populate('subcategory'). 
+    populate({
+        path: 'subcategory',
+        populate: { path: 'category' }
+      }). 
     populate('brand').
     exec(function (err, products) {
       if (err) res.send(err);
