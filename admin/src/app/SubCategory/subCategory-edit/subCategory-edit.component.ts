@@ -19,15 +19,20 @@ export class SubCategoryEditComponent implements OnInit {
     }
   
     ngOnInit() {
-      this.categories = this.categoryService.getCategories();
+      //this.categories = this.categoryService.getCategories();
     }
   
   
     addNewSubCategory() {
-      
+      /*
       this.subcategoryService.addSubCategory(this.form.value);
   
       this.router.navigate(['/subcategories']);
+      */
+      this.subcategoryService.addSubCategory(this.form.value).subscribe(
+        data => this.router.navigate(['/subcategories'])
+      )
+
     }
 
 

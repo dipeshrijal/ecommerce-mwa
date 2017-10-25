@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "./auth.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -9,14 +9,20 @@ import {AuthService} from "./auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  form: NgForm;                    // {1}
-  private formSubmitAttempt: boolean; // {2}
+  @ViewChild('loginForm') form: NgForm;
 
-  constructor(      // {3}
-    private authService: AuthService // {4}
-  ) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.authService.login(this.form.value);
+    } else {
+      console.log("no login");
+    }
   }
 
 }

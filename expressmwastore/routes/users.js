@@ -7,5 +7,4 @@ module.exports = function (router) {
     router.delete('/users/:id', User.delete),
     router.post('/users/order/:id', User.addOrder),
     router.post('/users/login', User.findByAccount)
-  
 };

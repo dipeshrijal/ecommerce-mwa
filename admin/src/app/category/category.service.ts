@@ -15,13 +15,14 @@ export class CategoryService {
   }
 
   getCategories() {
-    
+    /*
     this.http.get('http://localhost:3000/categories').subscribe(
       (response)  => this.categories = response
     );
     return this.categories;
-    
-    
+    */
+  return this.http.get('http://localhost:3000/categories');
   }
+  
 
 }
