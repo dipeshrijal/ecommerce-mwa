@@ -41,7 +41,12 @@ exports.update = function (req, res) {
 
 exports.addItems = function (req, res) {
     var product = req.body.product;
-    ShoppingCart.findOneAndUpdate({_id: req.params.id}, {$push: {items: product}}, {
+    var quantity = req.body.quantity;
+   var item= {
+       "product":  req.body.product,
+       "quantity": req.body.quantity
+   }
+    ShoppingCart.findOneAndUpdate({_id: req.params.id}, {$push: {items: item}}, {
         safe  : true,
         upsert: true
     }, function (err, result) {
@@ -104,6 +109,20 @@ exports.delete = function (req, res) {
         }
     });
 };
+
+
+exports.displayDetails= function (req, res){
+    ShoppingCart.
+    find().populate('items.product').
+    populate({
+        path: 'items',
+        populate: { path: 'product' }
+      }).
+    exec(function (err, subcategories) {
+        if (err) res.send(err);
+        res.send(subcategories);
+    });
+}
 
 
 
