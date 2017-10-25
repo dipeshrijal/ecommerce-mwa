@@ -18,7 +18,7 @@ var OrderSchema = new Schema({
 
 });
 
-CategorySchema.statics = {
+OrderSchema.statics = {
     
         
         get: function (query, callback) {
@@ -42,16 +42,16 @@ CategorySchema.statics = {
     
       
         create: function (data, callback) {
-            var category = new this(data);
-            category.save(callback);
+            var order = new this(data);
+            order.save(callback);
         }
     };
     
   
 
-var category = mongoose.model('category', CategorySchema);
+var order = mongoose.model('order', OrderSchema);
 
 /** export schema */
 module.exports = {
-    Category: category
+    Order: order
 };

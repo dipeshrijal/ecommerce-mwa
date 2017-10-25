@@ -34,6 +34,7 @@ require('./routes/categories')(router);
 require('./routes/subcategories')(router);
 require('./routes/products')(router);
 require('./routes/brands')(router);
+require('./routes/orders')(router);
 
 // end routes bindings
 

@@ -1,5 +1,5 @@
 'use strict';
-
+var Subcategory = require('../models/subcategory').Subcategory;
 var Category = require('../models/category').Category;
 
 /** create category */
@@ -27,6 +27,7 @@ exports.get= function (req, res) {
 
 /** update category . */
 exports.update = function (req, res) {
+
     Category.updateById({_id : req.params.id}, req.body, function(err, result) {
         if (!err) {
             return res.json(result);
@@ -51,8 +52,11 @@ exports.delete = function (req, res) {
 
 
 exports.addSubcategories = function (req, res) {
-    var subcategory = req.body.subcategory;
-    Category.findOneAndUpdate({_id: req.params.id}, {$push: {subcategories: subcategory}}, {
+
+   
+    Subcategory.create(req.body.subcategory, function(err, result) {
+ if (!err) {
+    Category.findOneAndUpdate({_id: req.params.id}, {$push: {subcategories: result._id}}, {
         safe  : true,
         upsert: true
     }, function (err, result) {
@@ -62,6 +66,12 @@ exports.addSubcategories = function (req, res) {
             return res.send(err);
         }
     });
+
+        } else {
+            return res.send(err); // 500 error
+        }
+    
+});
 }
 
 
