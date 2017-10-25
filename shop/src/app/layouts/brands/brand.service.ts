@@ -8,7 +8,6 @@ export class BrandService {
   }
 
   getBrands() {
-
     return this.http.get('http://localhost:3000/brands');
   }
 
