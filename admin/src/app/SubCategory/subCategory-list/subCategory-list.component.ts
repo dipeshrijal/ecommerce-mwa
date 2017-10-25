@@ -1,3 +1,4 @@
+import {Router} from "@angular/router";
 import { Subcategory } from './../../models/SubCategory';
 import {SubCategoryService} from '../sub-category.service';
 import {Component, OnInit} from '@angular/core';
@@ -11,11 +12,24 @@ export class SubCategoryListComponent implements OnInit {
 
   subcategories:Subcategory[];
 
-  constructor(private subcategoryService: SubCategoryService) {
+  constructor(private subcategoryService: SubCategoryService,
+  private router: Router) {
   }
 
   ngOnInit() {
     this.getSubcategories();
+  }
+
+  onDelete(subCategory) {
+    this.subcategoryService.deleteSubCat(subCategory._id).subscribe(
+      result => {
+        this.router.navigate(['/subcategories']);
+      }
+    );
+  }
+
+  onEdit(subCategory) {
+
   }
 
   getSubcategories() {

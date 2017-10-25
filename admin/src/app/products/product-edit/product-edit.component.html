@@ -78,8 +78,8 @@
                        placeholder="Enter quantity">
                 <div class="alert alert-danger"
                      *ngIf="productQuantity.touched && !productQuantity.valid">
-                  <div *ngIf="productId.errors.required">Product quantity is required</div>
-                  <div *ngIf="productId.errors.pattern">Product quantity should be numbers only</div>
+                  <div *ngIf="productQuantity.errors.required">Product quantity is required</div>
+                  <div *ngIf="productQuantity.errors.pattern">Product quantity should be numbers only</div>
                 </div>
               </div>
               <div class="form-group">
@@ -157,7 +157,11 @@
                        class="form-control"
                        id="discountPrice"
                        placeholder="Enter discounted price">
-              </div>
+                       <div class="alert alert-danger"
+                       *ngIf="productPrice.touched && !productPrice.valid">
+                          <div>Discounted price cannot be equal to actual price</div>
+                    </div>
+                  </div>
               <div class="form-group">
                 <label for="image">Multiple Image Upload</label>
                 <input type="file"

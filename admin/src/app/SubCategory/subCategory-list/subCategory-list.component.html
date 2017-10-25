@@ -24,6 +24,8 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
               </thead>
               <tbody>
@@ -31,6 +33,8 @@
                 <td>{{subcategory.name}}</td>
                 <td>{{subcategory.description}}</td>
                 <td>{{subcategory.category.name}}</td>
+                <td><button (click)="onEdit(subcategory)" class="btn btn-danger btn-sm">Edit</button></td>
+                <td><button (click)="onDelete(subcategory)" class="btn btn-danger btn-sm">Delete</button></td>
               </tr>
               </tbody>
             </table>
