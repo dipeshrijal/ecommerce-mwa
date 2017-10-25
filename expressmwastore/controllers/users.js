@@ -1,6 +1,8 @@
 'use strict';
 
 var User = require('../models/user').User;
+var Order = require('../models/order').Order;
+
 
 /** create category */
 exports.create = function (req, res) {
@@ -66,18 +68,26 @@ exports.delete = function (req, res) {
 };
 
 
-exports.addOrder = function (req, res) {
-    var order = req.body.order;
-    User.findOneAndUpdate({_id: req.params.id}, {$push: {orders: order}}, {
-        safe  : true,
-        upsert: true
-    }, function (err, result) {
-        if (! err) {
-            return res.json(result);
-        } else {
-            return res.send(err);
-        }
-    });
-}
 
+
+exports.addOrder = function (req, res) {
+    Order.create(req.body.order, function(err, result) {
+        if (!err) {
+            User.findOneAndUpdate({_id: req.params.id}, {$push: {orders: result._id}}, {
+                safe  : true,
+                upsert: true
+            }, function (err, result) {
+                if (! err) {
+                    return res.json(result);
+                } else {
+                    return res.send(err);
+                }
+            });
+    
+        } else {
+            return res.send(err); // 500 error
+        }
+    
+    });
+    }
 

@@ -62,7 +62,7 @@ exports.delete = function (req, res) {
 /** get  products by subcategory  */
 
 exports.findBySubcategory = function (req, res) {
-    Product.find({subcategory: req.params.subcategory}, function (err, products) {
+    Product.find({subcategory: req.params.id}, function (err, products) {
         if (! err) {
             return res.json(products);
         } else {
