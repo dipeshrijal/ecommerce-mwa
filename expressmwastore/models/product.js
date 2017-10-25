@@ -19,7 +19,7 @@ var ProductSchema = new Schema({
     description  : {type: String},
     color        : {type: String},
     size         : {type: String},
-    brand        : {type: Brand},
+    brand        : {type: Schema.Types.ObjectId, ref: 'brand'},
     discountPrice: {type: Number},
     createdAt    : {type: Date},
     updatedAt    : {type: Date},
