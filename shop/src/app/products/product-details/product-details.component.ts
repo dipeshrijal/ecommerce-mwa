@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         product => {
           this.product = product;
-          console.log(product);
+          console.log("hello");
         }
       );
   }

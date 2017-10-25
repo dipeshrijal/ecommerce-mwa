@@ -12,17 +12,17 @@
                *ngFor="let product of products; let i = index">
             <div class="product-item">
               <div class="pi-img-wrapper">
-                <img src="assets/assets/pages/img/products/model{{i + 4}}.jpg"
+                <img src="assets/assets/pages/img/products/model{{i + 1}}.jpg"
                      class="img-responsive"
                      alt="Berry Lace Dress">
                 <div>
                   <!--<a href="assets/assets/pages/img/products/model{{i + 4}}.jpg"-->
                   <!--class="btn btn-default fancybox-button">Zoom</a>-->
-                  <a href="#product-pop-up"
+                  <a routerLink="/products/{{product._id}}"
                      class="btn btn-default fancybox-fast-view">View</a>
                 </div>
               </div>
-              <h3><a href="shop-item.html">{{product.name}}</a></h3>
+              <h3><a routerLink="/products/{{product._id}}">{{product.name}}</a></h3>
               <div class="pi-price">${{product.price}}</div>
               <a href="javascript:;"
                  class="btn btn-default add2cart">Add to cart</a>
@@ -104,13 +104,11 @@
                      class="img-responsive"
                      alt="Berry Lace Dress">
                 <div>
-                  <a href="assets/assets/pages/img/products/model{{i+1}}.jpg"
-                     class="btn btn-default fancybox-button">Zoom</a>
-                  <a href="#product-pop-up"
+                  <a routerLink="/products/{{product._id}}"
                      class="btn btn-default fancybox-fast-view">View</a>
                 </div>
               </div>
-              <h3><a href="shop-item.html">{{product.name}}</a></h3>
+              <h3><a routerLink="/products/{{product._id}}">{{product.name}}</a></h3>
               <div class="pi-price">${{product.price}}</div>
               <a href="javascript:;"
                  class="btn btn-default add2cart">Add to cart</a>
@@ -134,17 +132,15 @@
                *ngFor="let product of products; let i = index">
             <div class="product-item">
               <div class="pi-img-wrapper">
-                <img src="assets/assets/pages/img/products/model{{i+3}}.jpg"
+                <img src="assets/assets/pages/img/products/model{{i+1}}.jpg"
                      class="img-responsive"
                      alt="Berry Lace Dress">
                 <div>
-                  <a href="assets/assets/pages/img/products/model{{i+4}}.jpg"
-                     class="btn btn-default fancybox-button">Zoom</a>
-                  <a href="#product-pop-up"
+                  <a routerLink="/products/{{product._id}}"
                      class="btn btn-default fancybox-fast-view">View</a>
                 </div>
               </div>
-              <h3><a href="shop-item.html">{{product.name}}</a></h3>
+              <h3><a routerLink="/products/{{product._id}}">{{product.name}}</a></h3>
               <div class="pi-price">${{product.price}}</div>
               <a href="javascript:;"
                  class="btn btn-default add2cart">Add to cart</a>

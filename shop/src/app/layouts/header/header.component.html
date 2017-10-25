@@ -144,7 +144,7 @@
           <!-- BEGIN DROPDOWN MENU -->
           <ul class="dropdown-menu">
             <li *ngFor="let sub of cat.subcategories">
-              <a routerLink="/products">{{sub.name}}</a>
+              <a routerLink="/products/{{cat.name}}/{{sub._id}}">{{sub.name}}</a>
             </li>
           </ul>
           <!-- END DROPDOWN MENU -->

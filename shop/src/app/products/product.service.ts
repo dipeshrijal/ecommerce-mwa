@@ -16,6 +16,10 @@ export class ProductService {
     return this.http.get('http://localhost:3000/products/' + id);
   }
 
+  getProductsBySubcategory(subcat) {
+    return this.http.get('http://localhost:3000/products/category/' + subcat);
+  }
+
 
   addProduct(product) {
     return this.http.post('http://localhost:3000/products', product);
