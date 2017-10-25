@@ -9,6 +9,8 @@ module.exports = function (router) {
         router.put('/products/:id', Product.update),
         router.delete('/products/:id', Product.delete),
         router.get('/products/category/:id', Product.findBySubcategory),
+        router.get('/products/categorydetails/:id', Product.findBySubcategoryDetail),
+        router.get('/products/subcategory/:id', Product.findByCategory),
         router.get('/products/details', Product.displayDetails),
         router.post('/products/review/:id', Product.addComments)
 

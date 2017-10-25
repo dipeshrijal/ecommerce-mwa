@@ -73,6 +73,35 @@ exports.findBySubcategory = function (req, res) {
 };
 
 
+exports.findByCategory = function (req, res) {
+    Product.find({}, function (err, products) {
+        var productList = products.subcategory.category.id(req.params.id);
+        if (! err) {
+            return res.json(productList);
+        } else {
+            console.log(err);
+            return res.send(err);
+        }
+    })
+};
+
+
+exports.findBySubcategoryDetail = function (req, res) {
+    Product.
+    find({subcategory: req.params.id}).
+    populate('subcategory'). 
+    populate({
+        path: 'subcategory',
+        populate: { path: 'category' }
+      }). 
+    populate('brand').
+    exec(function (err, products) {
+      if (err) res.send(err);
+      res.send(products);
+    });
+};
+
+
 
 exports.displayDetails= function (req, res){
     Product.
