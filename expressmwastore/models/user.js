@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  */
 var Address =require('./address');
 var UserSchema = new mongoose.Schema({
-    personalDeatails :{
+    personalDetails :{
     firstName   : String,
     lastName   : String,
     gender: {type: String, enum: ['Male', 'Female']},
@@ -18,7 +18,11 @@ var UserSchema = new mongoose.Schema({
     role : {type: String, enum: ['admin', 'customer']},
     },
     address: {type: Address},
-    orders    : [{type: Schema.Types.ObjectId, ref: 'order'}]
+    orders    : [{type: Schema.Types.ObjectId, ref: 'order'}],
+    credential: {
+        username: String,
+         password:  String
+    }
 
 });
 
@@ -61,3 +65,4 @@ var user = mongoose.model('user', UserSchema);
 module.exports = {
     User: user
 };
+
