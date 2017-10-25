@@ -17,19 +17,19 @@ import {AuthGuard} from "./login/auth.guard";
 
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'products', component: ProductListComponent},
-  {path: 'products/create', component: ProductEditComponent},
+  {path: 'products', component: ProductListComponent, canActivate: [AuthGuard]},
+  {path: 'products/create', component: ProductEditComponent, canActivate: [AuthGuard]},
   {path: 'products/:id', component: ProductDetailComponent},
-  {path: 'categories', component: CategoryListComponent},
-  {path: 'categories/create', component: CategoryEditComponent},
-  {path: 'brands', component: BrandListComponent},
-  {path: 'brands/create', component: BrandEditComponent},
-  {path: 'users', component: CustomerListComponent},
-  {path: 'subcategories', component: SubCategoryListComponent},
-  {path: 'subcategories/create', component: SubCategoryEditComponent},
+  {path: 'categories', component: CategoryListComponent, canActivate: [AuthGuard]},
+  {path: 'categories/create', component: CategoryEditComponent, canActivate: [AuthGuard]},
+  {path: 'brands', component: BrandListComponent, canActivate: [AuthGuard]},
+  {path: 'brands/create', component: BrandEditComponent, canActivate: [AuthGuard]},
+  {path: 'users', component: CustomerListComponent, canActivate: [AuthGuard]},
+  {path: 'subcategories', component: SubCategoryListComponent, canActivate: [AuthGuard]},
+  {path: 'subcategories/create', component: SubCategoryEditComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

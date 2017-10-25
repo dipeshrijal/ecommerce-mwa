@@ -9,22 +9,20 @@ import {NgForm} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('loginForm') form: NgForm;                    // {1}
-  private formSubmitAttempt: boolean; // {2}
+  @ViewChild('loginForm') form: NgForm;
 
-  constructor(      // {3}
-    private authService: AuthService // {4}
-  ) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
     if (this.form.valid) {
-      this.authService.login(this.form.value); // {7}
+      this.authService.login(this.form.value);
+    } else {
+      console.log("no login");
     }
-    console.log("no login");
-    // this.formSubmitAttempt = true;             // {8}
   }
 
 }

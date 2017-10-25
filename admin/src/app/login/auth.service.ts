@@ -6,10 +6,10 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<boolean>(false); // {1}
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {
-    return this.loggedIn.asObservable(); // {2}
+    return this.loggedIn.asObservable();
   }
 
   constructor(private http: HttpClient,
@@ -17,19 +17,25 @@ export class AuthService {
   }
 
   login(user) {
-
     this.http.post('http://localhost:3000/users/login', user).subscribe(
-      result => console.log(result)
+      user => {
+        if (Object.keys(user).length === 1) {
+          // data => localStorage.setItem('token', data['token']),
+          //   error => console.log(error));
+          this.loggedIn.next(true);
+          // localStorage.setItem('token', user['token']);
+          localStorage.setItem('token', "hero");
+          this.router.navigate(['/dashboard']);
+        } else {
+          console.log('error');
+        }
+
+      },
+      error => console.log(error)
     );
-
-
-    // if (user.userName !== '' && user.password != '') { // {3}
-    //   this.loggedIn.next(true);
-    //   this.router.navigate(['/']);
-    // }
   }
 
-  logout() {                            // {4}
+  logout() {
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }
