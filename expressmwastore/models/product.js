@@ -2,7 +2,7 @@
 
 var Brand = require('./brand')
 var Category =  require( './category');
-var SubCategory = require('./subcategory');
+
 
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
@@ -24,7 +24,7 @@ var ProductSchema = new Schema({
     createdAt    : {type: Date},
     updatedAt    : {type: Date},
     images       : [{type: String}],
-    subcategory  : {type: SubCategory},
+    subcategory    :{type: Schema.Types.ObjectId, ref: 'subcategory'},
     reviews      : [{
         type: String
     }]
