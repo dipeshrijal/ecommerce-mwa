@@ -17,4 +17,12 @@ export class SubCategoryService {
     return this.http.get('http://localhost:3000/subcategories/category');
   }
 
+  deleteSubCat(id) {
+    return this.http.delete('http://localhost:3000/subcategories/' + id);
+  }
+
+  getById(id) {
+    return this.http.get('http://localhost:3000/subcategories/' + id);
+  }
+
 }

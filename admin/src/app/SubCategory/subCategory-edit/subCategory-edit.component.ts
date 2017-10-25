@@ -32,7 +32,6 @@ export class SubCategoryEditComponent implements OnInit {
 
 
   addNewSubCategory() {
-    console.log(this.form.value);
     this.subcategoryService.addSubCategory(this.form.value).subscribe(
       data => this.router.navigate(['/subcategories'])
     )
