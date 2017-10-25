@@ -85,3 +85,16 @@ exports.displayDetails= function (req, res){
 }
 
 
+exports.addComments = function (req, res) {
+    var review = req.body.review;
+    Product.findOneAndUpdate({_id: req.params.id}, {$push: {reviews: review}}, {
+        safe  : true,
+        upsert: true
+    }, function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err);
+        }
+    });
+}

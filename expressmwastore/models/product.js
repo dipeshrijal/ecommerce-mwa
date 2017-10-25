@@ -25,7 +25,7 @@ var ProductSchema = new Schema({
     updatedAt    : {type: Date},
     images       : [{type: String}],
     subcategory  : {type: SubCategory},
-    review       : [{
+    reviews      : [{
         type: String
     }]
 
