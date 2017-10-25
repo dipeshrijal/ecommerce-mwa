@@ -23,23 +23,24 @@
               <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Discounted Price</th>
                 <th>Quantity</th>
                 <th>Color</th>
                 <th>Size</th>
                 <th>Brand</th>
-                <th>Discounted Price</th>
-
+                <th>Sub Category</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let product of products">
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
+                <td>{{product.discountPrice}}</td>
                 <td>{{product.quantity}}</td>
-                <td>{{product.description}}</td>
                 <td>{{product.color}}</td>
                 <td>{{product.size}}</td>
-                <td>{{product.brand}}</td>
+                <td>{{product.brand.name}}</td>
+                <td>{{product.subcategory.name}}</td>
               </tr>
               </tbody>
             </table>
