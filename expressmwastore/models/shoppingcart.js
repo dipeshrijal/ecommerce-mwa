@@ -14,7 +14,7 @@ var ShoppingcartSchema = new Schema({
     updatedAt: {type: Date},
     items    : [{
         product: {type: Schema.Types.ObjectId, ref: 'product'},
-        quantity: number
+        quantity: {type: Number}
     }]
 });
 
