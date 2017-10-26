@@ -124,5 +124,14 @@ exports.displayDetails= function (req, res){
         res.send(subcategories);
     });
 }
+exports.findByUser = function (req, res) {
+    ShoppingCart.findOne({user: req.params.id},  function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err); // 500 error
+        }
+    });
+};
 
 

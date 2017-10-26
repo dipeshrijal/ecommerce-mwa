@@ -6,6 +6,7 @@ module.exports = function (router) {
     router.put('/subcategories/:id', Subcategory.update),
     router.delete('/subcategories/:id', Subcategory.delete),
     router.get('/subcategories/category', Subcategory.findByCategory),
-    router.post('/subcategories/product/:id', Subcategory.addProducts)
+    router.post('/subcategories/product/:id', Subcategory.addProducts),
+    router.get('/subcategories/:id', Subcategory.findOne)
     
 };
