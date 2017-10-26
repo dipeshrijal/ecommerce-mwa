@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  shoppingcarts;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get("http://localhost:3000/shoppingcarts/user/59f143f726f96d1466106a1e")
+      .subscribe(
+        data => {
+          this.shoppingcarts = data;
+        }
+      );
   }
 
 }

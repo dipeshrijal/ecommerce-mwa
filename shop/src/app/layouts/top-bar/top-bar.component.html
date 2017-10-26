@@ -9,7 +9,7 @@
       <!-- BEGIN TOP BAR MENU -->
       <div class="col-md-6 col-sm-6 additional-nav">
         <ul class="list-unstyled list-inline pull-right">
-          <li><a routerLink="my-account" *ngIf="user?.personalDetails.firstName">My Account</a></li>
+          <!--<li><a routerLink="my-account" *ngIf="user?.personalDetails.firstName">My Account</a></li>-->
           <!--<li><a routerLink="wishlist">My Wishlist</a></li>-->
           <li><a routerLink="checkout" *ngIf="user?.personalDetails.firstName">Checkout</a></li>
           <li><a routerLink="login" *ngIf="!user?.personalDetails.firstName">Log In</a></li>

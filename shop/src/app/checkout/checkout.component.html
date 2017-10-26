@@ -32,67 +32,52 @@
                       <tr>
                         <th class="checkout-image">Image</th>
                         <th class="checkout-description">Description</th>
-                        <th class="checkout-model">Model</th>
+                        <!--<th class="checkout-model">Model</th>-->
                         <th class="checkout-quantity">Quantity</th>
                         <th class="checkout-price">Price</th>
                         <th class="checkout-total">Total</th>
                       </tr>
-                      <tr>
+                      <tr *ngFor="let cart of shoppingcarts; let i = index">
                         <td class="checkout-image">
-                          <a href="javascript:;"><img src="assets/assets/pages/img/products/model3.jpg"
+                          <a href="javascript:;"><img src="assets/assets/pages/img/products/model{{i+1}}.jpg"
                                                       alt="Berry Lace Dress"></a>
                         </td>
                         <td class="checkout-description">
-                          <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                          <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                          <em>More info is here</em>
+                          <h3><a href="javascript:;">{{cart.product.name}}</a></h3>
+                          <p><strong>Item {{i + 1}}</strong> - Color: {{cart.product.color}}; Size: {{cart.product.size}}</p>
+                          <!--<em>More info is here</em>-->
                         </td>
-                        <td class="checkout-model">RES.193</td>
-                        <td class="checkout-quantity">1</td>
-                        <td class="checkout-price"><strong><span>$</span>47.00</strong></td>
-                        <td class="checkout-total"><strong><span>$</span>47.00</strong></td>
-                      </tr>
-                      <tr>
-                        <td class="checkout-image">
-                          <a href="javascript:;"><img src="assets/assets/pages/img/products/model4.jpg"
-                                                      alt="Berry Lace Dress"></a>
-                        </td>
-                        <td class="checkout-description">
-                          <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                          <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                          <em>More info is here</em>
-                        </td>
-                        <td class="checkout-model">RES.193</td>
-                        <td class="checkout-quantity">1</td>
-                        <td class="checkout-price"><strong><span>$</span>47.00</strong></td>
-                        <td class="checkout-total"><strong><span>$</span>47.00</strong></td>
+                        <!--<td class="checkout-model">RES.193</td>-->
+                        <td class="checkout-quantity">{{cart.quantity}}</td>
+                        <td class="checkout-price"><strong><span>$</span>{{cart.product.price}}</strong></td>
+                        <td class="checkout-total"><strong><span>$</span>{{cart.product.price * cart.quantity}}</strong></td>
                       </tr>
                     </table>
                   </div>
-                  <div class="checkout-total-block">
-                    <ul>
-                      <li>
-                        <em>Sub total</em>
-                        <strong class="price"><span>$</span>47.00</strong>
-                      </li>
-                      <li>
-                        <em>Shipping cost</em>
-                        <strong class="price"><span>$</span>3.00</strong>
-                      </li>
-                      <li>
-                        <em>Eco Tax (-2.00)</em>
-                        <strong class="price"><span>$</span>3.00</strong>
-                      </li>
-                      <li>
-                        <em>VAT (17.5%)</em>
-                        <strong class="price"><span>$</span>3.00</strong>
-                      </li>
-                      <li class="checkout-total-price">
-                        <em>Total</em>
-                        <strong class="price"><span>$</span>56.00</strong>
-                      </li>
-                    </ul>
-                  </div>
+                  <!--<div class="checkout-total-block">-->
+                    <!--<ul>-->
+                      <!--<li>-->
+                        <!--<em>Sub total</em>-->
+                        <!--<strong class="price"><span>$</span>47.00</strong>-->
+                      <!--</li>-->
+                      <!--<li>-->
+                        <!--<em>Shipping cost</em>-->
+                        <!--<strong class="price"><span>$</span>3.00</strong>-->
+                      <!--</li>-->
+                      <!--<li>-->
+                        <!--<em>Eco Tax (-2.00)</em>-->
+                        <!--<strong class="price"><span>$</span>3.00</strong>-->
+                      <!--</li>-->
+                      <!--<li>-->
+                        <!--<em>VAT (17.5%)</em>-->
+                        <!--<strong class="price"><span>$</span>3.00</strong>-->
+                      <!--</li>-->
+                      <!--<li class="checkout-total-price">-->
+                        <!--<em>Total</em>-->
+                        <!--<strong class="price"><span>$</span>56.00</strong>-->
+                      <!--</li>-->
+                    <!--</ul>-->
+                  <!--</div>-->
                   <div class="clearfix"></div>
                   <button class="btn btn-primary pull-right"
                           type="submit"
