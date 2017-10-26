@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
 import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../../user/user.service";
 
 @Component({
   selector: 'app-product-details',
@@ -9,12 +10,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProductDetailsComponent implements OnInit {
   product;
+  user;
   quantity = 1;
   size;
   color;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private userService: UserService) {
   }
 
   ngOnInit() {
@@ -24,17 +27,23 @@ export class ProductDetailsComponent implements OnInit {
           this.product = product;
         }
       );
+
+    this.userService.user.subscribe(
+      user => this.user = user
+    );
   }
 
   addToCart(product) {
+    console.log(this.user);
     let items = {
-      items: {
-        "product": product._id,
-        "quantity": this.quantity
-      }
+      "product": product._id,
+      "quantity": this.quantity,
+      "user": this.user._id
     };
 
-    this.productService.addToCart(items);
+    this.productService.addToCart(items).subscribe(
+      
+    );
   }
 
 

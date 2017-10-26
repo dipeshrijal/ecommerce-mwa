@@ -170,7 +170,7 @@
                 <!--type="text"-->
                 <!--class="form-control input-sm">-->
                 <!--</div>-->
-                <button class="btn btn-primary"
+                <button *ngIf="user?._id" class="btn btn-primary"
                         (click)="addToCart(product)"
                 >Add to cart
                 </button>
