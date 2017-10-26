@@ -114,11 +114,8 @@ exports.delete = function (req, res) {
 
 exports.displayDetails= function (req, res){
     ShoppingCart.
-    find().populate('items.product').
-    populate({
-        path: 'items',
-        populate: { path: 'product' }
-      }).
+    find().
+    populate('product').
     exec(function (err, subcategories) {
         if (err) res.send(err);
         res.send(subcategories);
@@ -126,11 +123,8 @@ exports.displayDetails= function (req, res){
 }
 exports.findByUser = function (req, res) {
     ShoppingCart.
-    find({user: req.params.id}).populate('items.product').
-    populate({
-        path: 'items',
-        populate: { path: 'product' }
-      }).
+    find({user: req.params.id}).
+    populate('product').
     exec(function (err, subcategories) {
         if (err) res.send(err);
         res.send(subcategories);
