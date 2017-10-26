@@ -23,11 +23,14 @@ import {LoginComponent} from './user/login/login.component';
 import {RegisterComponent} from './user/register/register.component';
 import {SearchResultComponent} from './search-result/search-result.component';
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {UserService} from "./user/user.service";
 import {ProductService} from "./products/product.service";
 import {BrandService} from "./layouts/brands/brand.service";
 import {NumbersPipe} from "./products/numbers.pipe";
+import {AuthGuard} from "./user/auth.guard";
+import {AuthService} from "./user/auth.service";
+import {AuthInterceptor} from "./user/auth.inteceptors";
 
 
 @NgModule({
@@ -64,6 +67,13 @@ import {NumbersPipe} from "./products/numbers.pipe";
     UserService,
     ProductService,
     BrandService,
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })

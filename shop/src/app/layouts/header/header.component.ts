@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:3000/categories/details").subscribe(
+    this.http.get("http://localhost:3000/categoriesdetails").subscribe(
       data => {
         this.categories = data;
       }

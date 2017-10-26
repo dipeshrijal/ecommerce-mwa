@@ -6,6 +6,7 @@
     </ul>
     <!-- BEGIN SIDEBAR & CONTENT -->
     <div class="row margin-bottom-40">
+      {{message}}
       <!-- BEGIN CONTENT -->
       <div class="col-md-12 col-sm-12">
         <h1>Register</h1>
@@ -79,7 +80,16 @@
                       </div>
                     </div>
 
-                    <h3>Your Password</h3>
+                    <h3>Credentails</h3>
+                    <div class="form-group">
+                      <label for="username">Username <span class="require">*</span></label>
+                      <input type="text"
+                             id="username"
+                             required
+                             ngModel
+                             name="username"
+                             class="form-control">
+                    </div>
                     <div class="form-group">
                       <label for="password">Password <span class="require">*</span></label>
                       <input type="password"
@@ -181,7 +191,9 @@
                     </button>
                     <div class="checkbox pull-right">
                       <label>
-                        <input type="checkbox" name="agree" ngModel> I have read and agree to the
+                        <input type="checkbox"
+                               name="agree"
+                               ngModel> I have read and agree to the
                         <a title="Privacy Policy">Privacy Policy</a>
                         &nbsp;&nbsp;&nbsp;
                       </label>

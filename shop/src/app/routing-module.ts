@@ -17,7 +17,6 @@ const appRoutes: Routes = [
   {path: "", component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  // {path: 'products', component: ProductListComponent},
   {path: 'products/:cat/:subcat', component: ProductListComponent},
   {path: 'my-account', component: MyAccountComponent},
   {path: 'checkout', component: CheckoutComponent},
