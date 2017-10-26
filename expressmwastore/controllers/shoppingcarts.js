@@ -125,13 +125,17 @@ exports.displayDetails= function (req, res){
     });
 }
 exports.findByUser = function (req, res) {
-    ShoppingCart.findOne({user: req.params.id},  function (err, result) {
-        if (! err) {
-            return res.json(result);
-        } else {
-            return res.send(err); // 500 error
-        }
+    ShoppingCart.
+    find({user: req.params.id}).populate('items.product').
+    populate({
+        path: 'items',
+        populate: { path: 'product' }
+      }).
+    exec(function (err, subcategories) {
+        if (err) res.send(err);
+        res.send(subcategories);
     });
+   
 };
 
 
