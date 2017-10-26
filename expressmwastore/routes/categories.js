@@ -7,6 +7,6 @@ module.exports = function (router) {
         router.put('/categories/:id', Category.update),
         router.delete('/categories/:id', Category.delete),
         router.post('/categories/subcategories/:id', Category.addSubcategories),
-        router.get('/categories/details', Category.displayDetails)
+        router.get('/categoriesDetails', Category.displayDetails)
 
 };

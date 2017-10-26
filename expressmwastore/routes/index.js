@@ -13,7 +13,7 @@ var jwt = require('jsonwebtoken');
  var jwtOptions = {}
  jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 // Any random string to use as encryption key
- jwtOptions.secretOrKey = 'superSecretKey';
+ jwtOptions.secretOrKey = 'deepakkc';
 
 
 var express = require('express');
@@ -21,7 +21,7 @@ var router = express.Router();
 var User = require('../models/user').User;
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    res.render('index.jade', {title: 'Express'});
 });
 
 router.post('/authenticate', function(req, res) {
@@ -46,7 +46,8 @@ router.post('/authenticate', function(req, res) {
         } else{
           var payload = {id: user.id};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
-          res.json({message: "ok", token: token});
+          var decoded = jwt.decode(token);
+          res.json({message: "ok", token: token,user:user, tokenDetail: decoded});
         }   
   
       }
@@ -56,4 +57,17 @@ router.post('/authenticate', function(req, res) {
   router.get("/secret", passport.authenticate('jwt', { session: false }), function(req, res){
     res.json("Success! You can not see this without a token");
   });
+
+  router.post("/test", function(req, res){
+    jwt.verify(req.headers.token,jwtOptions.secretOrKey, function(err, token){
+      if(err){
+       return res.send(err)
+      }else{
+        return res.send("Sucess")
+      }
+    });
+
+    
+
+  })
 module.exports = router;
