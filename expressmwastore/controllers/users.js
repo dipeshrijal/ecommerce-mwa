@@ -23,22 +23,13 @@ var Order = require('../models/order').Order;
 
 /** create category */
 exports.create = function (req, res) {
-    jwt.verify(req.headers.token,jwtOptions.secretOrKey, function(err, token){
-        if(err){
-         return res.send("Access Denied")
-        }else{
-            User.create(req.body, function (err, result) {
-                if (! err) {
-                    return res.json(result);
-                } else {
-                    return res.send(err); // 500 error
-                }
-            });
+    User.create(req.body, function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err); // 500 error
         }
-      });
-
-
-   
+    });
 };
 
 /**   find by firstName */
