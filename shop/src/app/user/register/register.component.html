@@ -55,7 +55,7 @@
                                required
                                name="lastName"
                                id="lastname"
-                               class="form-control" 
+                               class="form-control"
                                #lastName="ngModel">
                                <div class="alert alert-danger"
                                *ngIf="lastName.touched && !lastName.valid">
@@ -240,17 +240,9 @@
                   <hr>
                   <div class="col-md-12">
                     <button class="btn btn-primary  pull-right"
+                            [disabled]="register.invalid"
                             type="submit">Register
                     </button>
-                    <div class="checkbox pull-right">
-                      <label>
-                        <input type="checkbox"
-                               name="agree"
-                               ngModel> I have read and agree to the
-                        <a title="Privacy Policy">Privacy Policy</a>
-                        &nbsp;&nbsp;&nbsp;
-                      </label>
-                    </div>
                   </div>
                 </div>
               </form>
