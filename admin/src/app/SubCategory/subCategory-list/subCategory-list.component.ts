@@ -11,6 +11,7 @@ import {Component, OnInit} from '@angular/core';
 export class SubCategoryListComponent implements OnInit {
 
   subcategories:Subcategory[];
+  subcategory;
 
   constructor(private subcategoryService: SubCategoryService,
   private router: Router) {
@@ -29,13 +30,17 @@ export class SubCategoryListComponent implements OnInit {
   }
 
   onEdit(subCategory) {
-
+    this.subcategoryService.getById(subCategory._id).subscribe(
+      (response:Subcategory) =>{
+        this.subcategory = response;
+        console.log(this.subcategory);
+      }
+    );
   }
 
   getSubcategories() {
     this.subcategoryService.getSubCategories().subscribe(
       (response:Subcategory[]) =>{
-        console.log(response);
         this.subcategories = response;
       }
     );
