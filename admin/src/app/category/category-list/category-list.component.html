@@ -17,17 +17,22 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1"
+                   class="table table-bordered table-striped">
               <thead>
               <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let category of categories">
                 <td>{{category.name}}</td>
                 <td>{{category.description}}</td>
+                <td><button (click)="onEdit(category)" class="btn btn-primary btn-sm">Edit</button></td>
+                <td><button (click)="onDelete(category)" class="btn btn-danger btn-sm">Delete</button></td>
               </tr>
               </tbody>
             </table>

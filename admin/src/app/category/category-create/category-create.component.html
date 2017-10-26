@@ -18,35 +18,18 @@
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form"
-                method="post"
-                #addCategory="ngForm"
-                (ngSubmit)="onUpdate()">
+          <form role="form" method="post" #addCategory ="ngForm" (ngSubmit)="addNewCategory()">
             <div class="box-body">
               <div class="form-group">
                 <label for="name">Name<span class="require">*</span></label>
-                <input
-                  [(ngModel)]="category.name"
-                  required
-                  type="text"
-                  name="name"
-                  class="form-control"
-                  id="name"
-                  placeholder="Enter name">
-                <!--<div class="alert alert-danger"-->
-                     <!--*ngIf="categoryName.touched && !categoryName.valid">-->
-                  <!--Category name is required-->
-                <!--</div>-->
+                <input ngModel #categoryName = "ngModel" required type="text" name="name" class="form-control" id="name" placeholder="Enter name">
+                <div class="alert alert-danger" *ngIf="categoryName.touched && !categoryName.valid">
+                  Category name is required
+                </div>
               </div>
               <div class="form-group">
                 <label for="cDescription">Description</label>
-                <input
-                       [(ngModel)]="category.description"
-                       type="text"
-                       name="description"
-                       class="form-control"
-                       id="cDescription"
-                       placeholder="Enter description">
+                <input ngModel #categoryDesc = "ngModel" type="text" name="description" class="form-control" id="cDescription" placeholder="Enter description">
               </div>
             </div>
 
@@ -54,10 +37,7 @@
 
             <div class="box-footer">
               <div class="col-md-4 col-md-push-8">
-                <button type="submit"
-                        [disabled]="addCategory.invalid"
-                        class="btn btn-primary btn-block pull-right">Update
-                </button>
+                <button type="submit" [disabled]="addCategory.invalid" class="btn btn-primary btn-block pull-right">Submit</button>
               </div>
             </div>
           </form>

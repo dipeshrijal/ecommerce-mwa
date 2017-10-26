@@ -165,12 +165,8 @@
                 </div>
               </div>
               <div class="product-page-cart">
-                <!--<div class="product-quantity">-->
-                <!--<input id="product-quantity"-->
-                <!--type="text"-->
-                <!--class="form-control input-sm">-->
-                <!--</div>-->
-                <button *ngIf="user?._id" class="btn btn-primary"
+                <button *ngIf="user?._id"
+                        class="btn btn-primary"
                         (click)="addToCart(product)"
                 >Add to cart
                 </button>

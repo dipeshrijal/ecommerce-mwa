@@ -42,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
     };
 
     this.productService.addToCart(items).subscribe(
-      
+
     );
   }
 

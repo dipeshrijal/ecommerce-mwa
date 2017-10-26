@@ -1,6 +1,6 @@
-
-export class Category{
-    name:string;
-    description:string;
+export class Category {
+  _id: number;
+  name: string;
+  description: string;
 }
 

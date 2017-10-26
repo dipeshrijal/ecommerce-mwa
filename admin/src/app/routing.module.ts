@@ -14,6 +14,7 @@ import {ProductDetailComponent} from "./products/product-detail/product-detail.c
 import {ProductEditComponent} from "./products/product-edit/product-edit.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./login/auth.guard";
+import {CategoryCreateComponent} from "./category/category-create/category-create.component";
 
 
 const appRoutes: Routes = [
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
   {path: 'products/create', component: ProductEditComponent, canActivate: [AuthGuard]},
   {path: 'products/:id', component: ProductDetailComponent},
   {path: 'categories', component: CategoryListComponent, canActivate: [AuthGuard]},
-  {path: 'categories/create', component: CategoryEditComponent, canActivate: [AuthGuard]},
+  {path: 'categories/create', component: CategoryCreateComponent, canActivate: [AuthGuard]},
+  {path: 'categories/:id', component: CategoryEditComponent, canActivate: [AuthGuard]},
   {path: 'brands', component: BrandListComponent, canActivate: [AuthGuard]},
   {path: 'brands/create', component: BrandEditComponent, canActivate: [AuthGuard]},
   {path: 'users', component: CustomerListComponent, canActivate: [AuthGuard]},

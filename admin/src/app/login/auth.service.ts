@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   login(user) {
-    this.http.post('http://localhost:3000/authenticate', user).subscribe(
+    return this.http.post('http://localhost:3000/authenticate', user).subscribe(
       user => {
         if (user['token']) {
           this.loggedIn.next(true);
@@ -26,7 +26,7 @@ export class AuthService {
           localStorage.setItem('token', user['token']);
           this.router.navigate(['/dashboard']);
         } else {
-          console.log('test');
+          return "Invalid username or password";
         }
 
       },

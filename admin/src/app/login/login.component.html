@@ -2,27 +2,38 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
+    <p style="color:red; font-size: 16px">{{message}}</p>
 
     <form #loginForm="ngForm"
           (ngSubmit)="onSubmit()"
           method="post">
       <div class="form-group has-feedback">
-        <input type="email"
+        <input type="text"
+               #username="ngModel"
                ngModel
                required
                name="username"
                class="form-control"
-               placeholder="Email">
+               placeholder="Username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <div class="alert alert-danger"
+             *ngIf="username.touched && !username.valid">
+          Username is required
+        </div>
       </div>
       <div class="form-group has-feedback">
         <input type="password"
                name="password"
+               #password="ngModel"
                ngModel
                required
                class="form-control"
                placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <div class="alert alert-danger"
+             *ngIf="password.touched && !password.valid">
+          Password is required
+        </div>
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -30,6 +41,7 @@
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit"
+                  [disabled]="loginForm.invalid"
                   class="btn btn-primary btn-block btn-flat">Sign In
           </button>
         </div>

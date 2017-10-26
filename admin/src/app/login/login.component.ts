@@ -11,6 +11,8 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('loginForm') form: NgForm;
 
+  message: string;
+
   constructor(private authService: AuthService) {
   }
 
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       this.authService.login(this.form.value);
     } else {
-      console.log("no login");
+      this.message = "Invalid username or password";
     }
   }
 
