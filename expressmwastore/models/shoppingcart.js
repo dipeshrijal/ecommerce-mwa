@@ -12,10 +12,8 @@ var mongoose = require('mongoose'),
 var ShoppingcartSchema = new Schema({
     createdAt: {type: Date},
     updatedAt: {type: Date},
-    items    : [{
-        product: {type: Schema.Types.ObjectId, ref: 'product'},
-        quantity: {type: Number}
-    }],
+    product: {type: Schema.Types.ObjectId, ref: 'product'},
+    quantity: {type: Number},
     user    : {type: Schema.Types.ObjectId, ref: 'user'}
 });
 
