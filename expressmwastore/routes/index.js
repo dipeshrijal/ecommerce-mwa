@@ -13,7 +13,7 @@ var jwt = require('jsonwebtoken');
  var jwtOptions = {}
  jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 // Any random string to use as encryption key
- jwtOptions.secretOrKey = 'deepakkc';
+jwtOptions.secretOrKey = 'superSecretKey';
 
 
 var express = require('express');
