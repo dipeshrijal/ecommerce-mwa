@@ -16,8 +16,6 @@ export class HeaderComponent implements OnInit {
     this.authService.user.subscribe(
       per =>{
         this.user = per;
-        console.log(per);
-
       }
     );
   }

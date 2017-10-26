@@ -11,17 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerListComponent implements OnInit {
 
   customers:Customer[];
-  
+
     constructor(private customerService: CustomerService,
                 private http: HttpClient) { }
-  
+
     ngOnInit() {
       this.getCustomers();
     }
-  
+
     getCustomers() {
       this.http.get('http://localhost:3000/users').subscribe(
-        (response:Customer[])  => this.customers = response
+        (response:Customer[])  => {
+          this.customers = response;
+        }
       );
     }
 
