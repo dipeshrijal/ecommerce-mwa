@@ -25,4 +25,8 @@ export class ProductService {
     return this.http.post('http://localhost:3000/products', product);
   }
 
+  addToCart(product) {
+    return this.http.post('http://localhost:3000/shoppingcarts', product);
+  }
+
 }

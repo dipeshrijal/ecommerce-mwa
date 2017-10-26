@@ -30,12 +30,7 @@ export class SubCategoryListComponent implements OnInit {
   }
 
   onEdit(subCategory) {
-    this.subcategoryService.getById(subCategory._id).subscribe(
-      (response:Subcategory) =>{
-        this.subcategory = response;
-        console.log(this.subcategory);
-      }
-    );
+    this.router.navigateByUrl('/subcategories/' + subCategory._id);
   }
 
   getSubcategories() {
