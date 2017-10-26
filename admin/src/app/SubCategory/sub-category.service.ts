@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class SubCategoryService {
-
   constructor(private http: HttpClient) {
   }
 
@@ -21,7 +21,7 @@ export class SubCategoryService {
     return this.http.delete('http://localhost:3000/subcategories/' + id);
   }
 
-  getById(id) {
+  getCategoryById(id) {
     return this.http.get('http://localhost:3000/subcategories/' + id);
   }
 

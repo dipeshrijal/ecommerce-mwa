@@ -30,6 +30,8 @@ const appRoutes: Routes = [
   {path: 'users', component: CustomerListComponent, canActivate: [AuthGuard]},
   {path: 'subcategories', component: SubCategoryListComponent, canActivate: [AuthGuard]},
   {path: 'subcategories/create', component: SubCategoryEditComponent, canActivate: [AuthGuard]},
+  {path: 'subcategories/:id', component: SubCategoryEditComponent, canActivate: [AuthGuard]},
+
 ];
 
 @NgModule({
