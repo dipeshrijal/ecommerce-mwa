@@ -41,7 +41,12 @@
                                ngModel
                                required
                                name="firstName"
-                               class="form-control">
+                               class="form-control"
+                               #firstname="ngModel">
+                               <div class="alert alert-danger"
+                               *ngIf="firstname.touched && !firstname.valid">
+                            First Name is required
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="lastname">Last Name <span class="require">*</span></label>
@@ -50,7 +55,12 @@
                                required
                                name="lastName"
                                id="lastname"
-                               class="form-control">
+                               class="form-control" 
+                               #lastName="ngModel">
+                               <div class="alert alert-danger"
+                               *ngIf="lastName.touched && !lastName.valid">
+                            Last Name is required
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="email">E-Mail <span class="require">*</span></label>
@@ -59,7 +69,12 @@
                                required
                                name="email"
                                id="email"
-                               class="form-control">
+                               class="form-control"
+                               #email="ngModel">
+                               <div class="alert alert-danger"
+                               *ngIf="email.touched && !email.valid">
+                            Email is required
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="telephone">Telephone <span class="require">*</span></label>
@@ -68,7 +83,12 @@
                                name="phone"
                                ngModel
                                required
-                               class="form-control">
+                               class="form-control"
+                               #telephone="ngModel">
+                               <div class="alert alert-danger"
+                               *ngIf="telephone.touched && !telephone.valid">
+                            Teleophone is required
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="fax">Fax</label>
@@ -88,7 +108,12 @@
                              required
                              ngModel
                              name="username"
-                             class="form-control">
+                             class="form-control"
+                             #username="ngModel">
+                             <div class="alert alert-danger"
+                             *ngIf="username.touched && !username.valid">
+                          Username is required
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="password">Password <span class="require">*</span></label>
@@ -97,7 +122,12 @@
                              required
                              ngModel
                              name="password"
-                             class="form-control">
+                             class="form-control"
+                             #password="ngModel">
+                             <div class="alert alert-danger"
+                             *ngIf="password.touched && !password.valid">
+                          Password is required
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="password-confirm">Password Confirm <span class="require">*</span></label>
@@ -106,7 +136,12 @@
                              name="password_confirmation"
                              ngModel
                              id="password-confirm"
-                             class="form-control">
+                             class="form-control"
+                             #passwordConfirm="ngModel">
+                             <div class="alert alert-danger"
+                             *ngIf="passwordConfirm.touched && !passwordConfirm.valid">
+                          Password Confirmation is required
+                        </div>
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
@@ -143,7 +178,12 @@
                                name="city"
                                required
                                ngModel
-                               class="form-control">
+                               class="form-control"
+                               #city="ngModel">
+                               <div class="alert alert-danger"
+                               *ngIf="city.touched && !city.valid">
+                            City is required
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="post-code">Post Code <span class="require">*</span></label>
@@ -152,35 +192,48 @@
                                name="zip"
                                ngModel
                                required
-                               class="form-control">
+                               class="form-control"
+                               #postCode="ngModel">
+                               <div class="alert alert-danger"
+                               *ngIf="postCode.touched && !postCode.valid">
+                            Post Code is required
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="country">Country <span class="require">*</span></label>
                         <select class="form-control input-sm"
                                 name="country"
                                 required
-                                #country
-                                [ngModel]="country"
-                                id="country">
+                                ngModel
+                                id="country"
+                                #country="ngModel">
                           <option value=""> --- Please Select ---</option>
                           <option value="244">Aaland Islands</option>
                           <option value="1">Afghanistan</option>
                           <option value="2">Albania</option>
                         </select>
+                        <div class="alert alert-danger"
+                        *ngIf="country.touched && !country.valid">
+                     Country is required
+                   </div>
                       </div>
                       <div class="form-group">
                         <label for="region-state">Region/State <span class="require">*</span></label>
                         <select class="form-control input-sm"
                                 name="state"
                                 required
-                                #state
-                                [ngModel]="state"
-                                id="region-state">
+                                ngModel
+                                id="region-state"
+                                #state="ngModel">
                           <option value=""> --- Please Select ---</option>
                           <option value="3513">Aberdeen</option>
                           <option value="3514">Aberdeenshire</option>
                           <option value="3515">Anglesey</option>
                         </select>
+                        <div class="alert alert-danger"
+                        *ngIf="state.touched && !state.valid">
+                     State is required
+                   </div>
                       </div>
                     </div>
                   </div>
