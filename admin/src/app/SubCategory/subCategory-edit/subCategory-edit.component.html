@@ -24,7 +24,7 @@
                 (ngSubmit)="addNewSubCategory()">
             <div class="box-body">
               <div class="form-group">
-                <label for="categoryName">Category</label>
+                <label for="categoryName">Category<span class="require">*</span></label>
                 <select ngModel
                         #categoryName="ngModel"
                         required
@@ -41,7 +41,7 @@
               </div>
               </div>
               <div class="form-group">
-                <label for="subCategoryName">Name</label>
+                <label for="subCategoryName">Name<span class="require">*</span></label>
                 <input ngModel
                        #subCategoryName="ngModel"
                        required

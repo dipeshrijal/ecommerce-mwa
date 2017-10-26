@@ -24,7 +24,7 @@
                 (ngSubmit)="addNewProduct()">
             <div class="box-body">
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Name<span class="require">*</span></label>
                 <input ngModel
                        #productName="ngModel"
                        forbiddenName="medicine"
@@ -51,7 +51,7 @@
                        placeholder="Enter description">
               </div>
               <div class="form-group">
-                <label for="color">Color</label>
+                <label for="color">Color<span class="require">*</span></label>
                 <input ngModel
                        #productColor="ngModel"
                        required
@@ -66,7 +66,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="quantity">Quantity</label>
+                <label for="quantity">Quantity<span class="require">*</span></label>
                 <input ngModel
                        #productQuantity="ngModel"
                        required
@@ -83,7 +83,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Brand</label>
+                <label>Brand<span class="require">*</span></label>
                 <select ngModel
                         #productBrand="ngModel"
                         required
@@ -99,7 +99,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Sub Category</label>
+                <label>Sub Category<span class="require">*</span></label>
                 <select ngModel
                         #productSubCatgory="ngModel"
                         required
@@ -116,7 +116,7 @@
               </div>
 
               <div class="form-group">
-                <label for="size">Size</label>
+                <label for="size">Size<span class="require">*</span></label>
                 <input ngModel
                        #productSize="ngModel"
                        required
@@ -131,7 +131,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">Price<span class="require">*</span></label>
                 <input ngModel
                        #productPrice="ngModel"
                        required
@@ -148,7 +148,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="discountPrice">Discounted Price</label>
+                <label for="discountPrice">Discounted Price<span class="require">*</span></label>
                 <input ngModel
                        #discountPrice="ngModel"
                        pattern="^([0-9]*)$"
