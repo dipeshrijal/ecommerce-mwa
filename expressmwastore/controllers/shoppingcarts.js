@@ -72,6 +72,7 @@ exports.removeItems = function (req, res) {
     });
 }
 
+
 exports.updateQuantity = function (req, res) {
     var product = req.body.product;
     ShoppingCart.findOneAndUpdate({_id: req.params.id}, {'items.id': product._id}, {
@@ -123,7 +124,5 @@ exports.displayDetails= function (req, res){
         res.send(subcategories);
     });
 }
-
-
 
 
