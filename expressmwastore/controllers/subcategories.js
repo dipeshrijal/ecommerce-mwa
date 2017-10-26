@@ -77,3 +77,15 @@ Product.create(req.body.product, function(err, result) {
 
 });
 }
+
+
+/** * find by id */
+exports.findOne = function (req, res) {
+    Subcategory.findOne({_id: req.params.id},  function (err, result) {
+        if (! err) {
+            return res.json(result);
+        } else {
+            return res.send(err); // 500 error
+        }
+    });
+};
