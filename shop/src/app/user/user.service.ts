@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class UserService {
-  private loggedIn = new BehaviorSubject<boolean>(true);
+  private loggedIn = new BehaviorSubject<boolean>(false);
   user = new BehaviorSubject<any>(null);
 
   get isLoggedIn() {
@@ -21,7 +21,7 @@ export class UserService {
       user => {
         if(user['token']) {
           this.loggedIn.next(true);
-          // this.user.next(user);
+          this.user.next(user['user']);
           localStorage.setItem('token', user['token']);
           this.router.navigate(['/']);
         }
@@ -32,5 +32,12 @@ export class UserService {
 
   createUser(user) {
     return this.http.post('http://localhost:3000/users', user);
+  }
+
+  logout() {
+    this.loggedIn.next(false);
+    this.user.next(null);
+    this.router.navigate(['/login']);
+    localStorage.removeItem('token');
   }
 }

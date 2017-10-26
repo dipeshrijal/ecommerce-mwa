@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<boolean>(true);
+  private loggedIn = new BehaviorSubject<boolean>(false);
   user = new BehaviorSubject<any>(null);
 
   get isLoggedIn() {
@@ -18,20 +18,12 @@ export class AuthService {
   }
 
   login(user) {
-    this.http.post('http://localhost:3000/users/login', user).subscribe(
+    this.http.post('http://localhost:3000/authenticate', user).subscribe(
       user => {
-
-        console.log(user);
-
-        if (Object.keys(user).length === 1) {
-          console.log(user);
-        //   // data => localStorage.setItem('token', data['token']),
-        //   //   error => console.log(error));
-        //   // localStorage.setItem('loggedin', 'true');
+        if (user['token']) {
           this.loggedIn.next(true);
-          this.user.next(user);
+          this.user.next(user['user']);
           localStorage.setItem('token', user['token']);
-          localStorage.setItem('token', "hero");
           this.router.navigate(['/dashboard']);
         } else {
           console.log('test');

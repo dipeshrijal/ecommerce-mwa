@@ -12,7 +12,8 @@
           <li><a routerLink="my-account">My Account</a></li>
           <!--<li><a routerLink="wishlist">My Wishlist</a></li>-->
           <li><a routerLink="checkout">Checkout</a></li>
-          <li><a routerLink="login">Log In</a></li>
+          <li><a routerLink="login" *ngIf="!user?.personalDetails.firstName">Log In</a></li>
+          <li><a (click)="onLogout()" *ngIf="user?.personalDetails.firstName">Log Out</a></li>
         </ul>
       </div>
       <!-- END TOP BAR MENU -->

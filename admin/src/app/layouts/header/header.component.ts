@@ -14,7 +14,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe(
-      per =>this.user = per
+      per =>{
+        this.user = per;
+        console.log(per);
+
+      }
     );
   }
 

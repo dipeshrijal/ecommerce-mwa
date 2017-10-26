@@ -8,16 +8,11 @@ import {AuthService} from "./login/auth.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isLoggedIn$: Observable<boolean>;                  // {1}
+  isLoggedIn$: Observable<boolean>;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
-    // this.isLoggedIn$ = localStorage.getItem('isloggedin');
-  }
-
-  onLogout(){
-    this.authService.logout();                      // {3}
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 }
