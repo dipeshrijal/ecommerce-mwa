@@ -120,15 +120,17 @@
                 <input ngModel
                        #productSize="ngModel"
                        required
+                       pattern="^([0-9]*)$"
                        type="text"
                        name="color"
                        class="form-control"
                        id="size"
                        placeholder="Enter size">
-                <div class="alert alert-danger"
-                     *ngIf="productSize.touched && !productSize.valid">
-                  Product size is required
-                </div>
+                       <div class="alert alert-danger"
+                       *ngIf="productSize.touched && !productSize.valid">
+                    <div *ngIf="productSize.errors.required">Product size is required</div>
+                    <div *ngIf="productSize.errors.pattern">Product size should be numbers only</div>
+                  </div>
               </div>
               <div class="form-group">
                 <label for="price">Price<span class="require">*</span></label>
@@ -158,9 +160,10 @@
                        id="discountPrice"
                        placeholder="Enter discounted price">
                        <div class="alert alert-danger"
-                       *ngIf="productPrice.touched && !productPrice.valid">
-                          <div>Discounted price cannot be equal to actual price</div>
-                    </div>
+                       *ngIf="discountPrice.touched && !discountPrice.valid">
+                    <div *ngIf="discountPrice.errors.required">Discounted Product price is required</div>
+                    <div *ngIf="discountPrice.errors.pattern">Discounted Product price should be numbers only</div>
+                  </div>
                   </div>
               <!--<div class="form-group">-->
                 <!--<label for="image">Multiple Image Upload</label>-->
