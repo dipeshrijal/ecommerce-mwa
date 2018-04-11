@@ -13,5 +13,4 @@ module.exports = function (router) {
         router.get('/products/subcategory/:id', Product.findByCategory),
         router.get('/products/details', Product.displayDetails),
         router.post('/products/review/:id', Product.addComments)
-
 };

@@ -7,7 +7,8 @@ import {AuthService} from "./login/auth.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
+
   isLoggedIn$: Observable<boolean>;
 
   constructor(private authService: AuthService) { }

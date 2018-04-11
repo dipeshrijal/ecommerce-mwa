@@ -51,37 +51,42 @@ exports.delete = function (req, res) {
 
 
 exports.findByCategory = function (req, res) {
-    Subcategory.find().populate('category').exec(function (err, subcategories) {
-        if (err) res.send(err);
-        res.send(subcategories);
+    Subcategory
+        .find()
+        .populate('category')
+        .exec(function (err, subcategories) {
+            if (err) res.send(err);
+            res.send(subcategories);
+        }).catch(function (err) {
+        console.log(err);
     });
 };
 
 exports.addProducts = function (req, res) {
-Product.create(req.body.product, function(err, result) {
-    if (!err) {
-        Subcategory.findOneAndUpdate({_id: req.params.id}, {$push: {products: result._id}}, {
-            safe  : true,
-            upsert: true
-        }, function (err, result) {
-            if (! err) {
-                return res.json(result);
-            } else {
-                return res.send(err);
-            }
-        });
+    Product.create(req.body.product, function (err, result) {
+        if (! err) {
+            Subcategory.findOneAndUpdate({_id: req.params.id}, {$push: {products: result._id}}, {
+                safe  : true,
+                upsert: true
+            }, function (err, result) {
+                if (! err) {
+                    return res.json(result);
+                } else {
+                    return res.send(err);
+                }
+            });
 
-    } else {
-        return res.send(err); // 500 error
-    }
+        } else {
+            return res.send(err); // 500 error
+        }
 
-});
+    });
 }
 
 
 /** * find by id */
 exports.findOne = function (req, res) {
-    Subcategory.findOne({_id: req.params.id},  function (err, result) {
+    Subcategory.findOne({_id: req.params.id}, function (err, result) {
         if (! err) {
             return res.json(result);
         } else {

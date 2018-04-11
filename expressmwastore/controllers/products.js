@@ -12,7 +12,7 @@ var ExtractJwt = passportJWT.ExtractJwt;
 var JwtStrategy = passportJWT.Strategy;
 
 
-var jwtOptions = {}
+var jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 // Any random string to use as encryption key
 jwtOptions.secretOrKey = 'superSecretKey';
@@ -22,10 +22,10 @@ var Product = require('../models/product').Product;
 /** create product */
 exports.create = function (req, res) {
 
-    jwt.verify(req.headers.token,jwtOptions.secretOrKey, function(err, token){
-        if(err){
-         return res.send("Access Denied")
-        }else{
+    jwt.verify(req.headers.token, jwtOptions.secretOrKey, function (err, token) {
+        if (err) {
+            return res.send("Access Denied")
+        } else {
             Product.create(req.body, function (err, result) {
                 if (! err) {
                     return res.json(result);
@@ -34,13 +34,13 @@ exports.create = function (req, res) {
                 }
             });
         }
-      });
+    });
 
 
 };
 
 exports.findOne = function (req, res) {
-    Product.findOne({_id: req.params.id},  function (err, result) {
+    Product.findOne({_id: req.params.id}, function (err, result) {
         if (! err) {
             return res.json(result);
         } else {
@@ -63,10 +63,10 @@ exports.get = function (req, res) {
 
 /** update product . */
 exports.update = function (req, res) {
-    jwt.verify(req.headers.token,jwtOptions.secretOrKey, function(err, token){
-        if(err){
-         return res.send("Access Denied")
-        }else{
+    jwt.verify(req.headers.token, jwtOptions.secretOrKey, function (err, token) {
+        if (err) {
+            return res.send("Access Denied")
+        } else {
             Product.updateById({_id: req.params.id}, req.body, function (err, result) {
                 if (! err) {
                     return res.json(result);
@@ -75,19 +75,17 @@ exports.update = function (req, res) {
                 }
             });
         }
-      });
+    });
 
-
-   
 
 };
 
 /** delete  product  */
 exports.delete = function (req, res) {
-    jwt.verify(req.headers.token,jwtOptions.secretOrKey, function(err, token){
-        if(err){
-         return res.send("Access Denied")
-        }else{
+    jwt.verify(req.headers.token, jwtOptions.secretOrKey, function (err, token) {
+        if (err) {
+            return res.send("Access Denied")
+        } else {
             Product.remove({_id: req.params.id}, function (err, result) {
                 if (! err) {
                     return res.json(result);
@@ -97,9 +95,9 @@ exports.delete = function (req, res) {
                 }
             });
         }
-      });
+    });
 
-  
+
 };
 
 /** get  products by subcategory  */
@@ -130,36 +128,47 @@ exports.findByCategory = function (req, res) {
 
 
 exports.findBySubcategoryDetail = function (req, res) {
-    Product.
-    find({subcategory: req.params.id}).
-    populate('subcategory'). 
-    populate({
-        path: 'subcategory',
-        populate: { path: 'category' }
-      }). 
-    populate('brand').
-    exec(function (err, products) {
-      if (err) res.send(err);
-      res.send(products);
+    Product.find({subcategory: req.params.id}).populate('subcategory').populate({
+        path    : 'subcategory',
+        populate: {path: 'category'}
+    }).populate('brand').exec(function (err, products) {
+        if (err) res.send(err);
+        res.send(products);
     });
 };
 
 
-
-exports.displayDetails= function (req, res){
-    Product.
-    find().
-    populate('subcategory'). 
-    populate({
-        path: 'subcategory',
-        populate: { path: 'category' }
-      }). 
-    populate('brand').
-    exec(function (err, products) {
-      if (err) res.send(err);
-      res.send(products);
-    });
-}
+exports.displayDetails = function (req, res) {
+    Product
+        .find()
+        .populate('brand')
+        .populate({
+            path: 'subcategory',
+            populate: {
+                path: 'category'
+            }
+        })
+        .exec(function (err, result) {
+                if (! err) {
+                    return res.json(result);
+                } else {
+                    return res.send(err); // 500 error
+                }
+            }
+        );
+    // Product.
+    // find().
+    // populate('subcategory').
+    // populate({
+    //     path: 'subcategory',
+    //     populate: { path: 'category' }
+    //   }).
+    // populate('brand').
+    // exec(function (err, products) {
+    //   if (err) res.send(err);
+    //   res.send(products);
+    // });
+};
 
 
 exports.addComments = function (req, res) {

@@ -1,6 +1,6 @@
 'use strict';
 
-var Brand = require('./brand')
+var Brand = require('./brand');
 var Category =  require( './category');
 
 

@@ -1,7 +1,10 @@
-import {Router} from "@angular/router";
-import { Subcategory } from './../../models/SubCategory';
-import {SubCategoryService} from '../sub-category.service';
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {SubCategoryService} from '../sub-category.service';
+import {Subcategory} from '../../models/SubCategory';
+import 'rxjs/add/operator/publishLast';
+import 'rxjs/add/operator/share';
 
 @Component({
   selector: 'app-subcategory-list',
@@ -10,15 +13,20 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SubCategoryListComponent implements OnInit {
 
-  subcategories:Subcategory[];
+  subcategories: Subcategory[];
   subcategory;
 
   constructor(private subcategoryService: SubCategoryService,
-  private router: Router) {
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.getSubcategories();
+    this.subcategoryService.getSubCategories().subscribe(
+      (response: Subcategory[]) => {
+        this.subcategories = response;
+      }
+    );
+    //this.getSubcategories();
   }
 
   onDelete(subCategory) {
@@ -34,11 +42,11 @@ export class SubCategoryListComponent implements OnInit {
   }
 
   getSubcategories() {
-    this.subcategoryService.getSubCategories().subscribe(
-      (response:Subcategory[]) =>{
-        this.subcategories = response;
-      }
-    );
+    // this.subcategoryService.getSubCategories().subscribe(
+    //   (response: Subcategory[]) => {
+    //     this.subcategories = response;
+    //   }
+    // );
   }
 
 }

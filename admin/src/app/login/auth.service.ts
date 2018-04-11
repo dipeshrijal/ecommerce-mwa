@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn = new BehaviorSubject<boolean>(false);
   user = new BehaviorSubject<any>(null);
 
   get isLoggedIn() {
@@ -18,11 +18,19 @@ export class AuthService {
   }
 
   login(user) {
+    // console.log(user);
+    // this.http.post('http://localhost:3000/authenticate', user).subscribe(
+    //   user => {
+    //     console.log(user);
+    //   }
+    //
+    // );
     return this.http.post('http://localhost:3000/authenticate', user).subscribe(
       user => {
         if (user['token']) {
           this.loggedIn.next(true);
           this.user.next(user['user']);
+          localStorage.setItem('currentUser', JSON.stringify(user));
           localStorage.setItem('token', user['token']);
           this.router.navigate(['/dashboard']);
         } else {
@@ -30,7 +38,7 @@ export class AuthService {
         }
 
       },
-      error => console.log(error)
+     error => console.log(error)
     );
   }
 

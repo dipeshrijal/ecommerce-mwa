@@ -1,6 +1,5 @@
-import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Subject} from "rxjs/Subject";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class SubCategoryService {
@@ -14,7 +13,7 @@ export class SubCategoryService {
   }
 
   getSubCategories() {
-    return this.http.get('http://localhost:3000/subcategories/category');
+    return this.http.get('http://localhost:3000/subcategories/category').share();
   }
 
   deleteSubCat(id) {

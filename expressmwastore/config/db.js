@@ -8,7 +8,7 @@ var db = Mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error'));
 db.on('open', function callback() {
-    console.log('Connection with database succeeded.');
+    console.log('Connection with database succeeded. hoho');
 });
 
 exports.db = db;
